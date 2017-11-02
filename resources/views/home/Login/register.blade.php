@@ -34,7 +34,7 @@
             </div>
             <div class="col-lg-3 col-md-6 col-sm-7 hidden-xs">
                <div class="right-box">
-                  <button type="button" class="access-btn" data-toggle="modal" data-target="#enquirypopup">get free access</button>
+                 
                </div>
             </div>
          </div>
@@ -51,14 +51,14 @@
                      </button>
                   </div>
                   <div class="collapse navbar-collapse js-navbar-collapse megabg dropshd ">
-                     <ul class="nav navbar-nav">
-                        <li><a href="{{ url('/home') }}">Home</a></li>
-                  <li><a href="single-video.html">Video Post</a></li>
-                  <li><a href="single-page.html">Single Page - Basic</a></li>
-                  <li><a href="single-page-with-img.html">Single Page - with Image</a></li>
-                  <li><a href="{{ url('/login') }}">Login</a></li>
-                  <li><a href="gallery-video-boxed.html">Gallery</a></li>
-                  <li><a href="contact.html">Contact</a></li>
+                    <ul class="nav navbar-nav">
+                        <li><a href="{{ url('/home') }}">首页</a></li>
+                  <li><a href="single-video.html">视频贴</a></li>
+                  <li><a href="single-page.html">视频页</a></li>
+                  <li><a href="single-page-with-img.html">视频内容</a></li>
+                  <li><a href="{{ url('/login') }}">登录</a></li>
+                  <li><a href="gallery-video-boxed.html">视频简介</a></li>
+                  <li><a href="contact.html">联系我们</a></li>
                      </ul>
                      <ul class="social">
                         <li class="social-facebook"><a href="#" class="fa fa-facebook social-icons"></a></li>
@@ -116,7 +116,7 @@
                               </div>
                               <div class="col-md-5">
                                  <div class="register-form">
-                                    <h2 class="title main-head-title">Create your account</h2>
+                                    <h2 class="title main-head-title">欢迎注册</h2>
 
                               
                                     <script>
@@ -136,7 +136,7 @@
                                        </div>
                                        <div class="input-group">
                                           <span class="fa fa-user login-inputicon"></span>
-                                          <input type="text" name="code" placeholder="输入手机验证码" required>
+                                          <input type="text" name="code" placeholder="确认密码" required>
                                        </div>
 
                                        

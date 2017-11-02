@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home.index.index');
 });
 
 // Route::get('index','HomeController@index');
@@ -30,6 +30,8 @@ Route::post('/login', 'home\LoginController@dologin');
 Route::get('/register', 'home\LoginController@register');
 Route::post('/register', 'home\LoginController@doregister');
 
+//前台购物车
+Route::get('/orders','home\OrderController@index');
 //后台
 //后台首页
 Route::get('/admins','admin\AdminController@index');
@@ -83,4 +85,6 @@ Route::post('/uploadsss','admin\ListController@uploadsss');
 //修改
 //视频列表
 Route::resource('/lists','admin\ListController');
+
+
 

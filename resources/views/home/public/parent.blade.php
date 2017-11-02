@@ -6,7 +6,7 @@
       <meta name="description" content="">
       <meta name="author" content="OrcasThemes">
       <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-      <title>波波视频网</title>
+      <title></title>
       <!-- Bootstrap core CSS -->
       <link href = "{{ asset('homes/css/bootstrap.css')}}" rel="stylesheet">
       <!-- Custom styles for this template -->
@@ -17,22 +17,23 @@
       <![endif]-->
       <link rel="stylesheet" href ="{{ asset('homes/css/font-awesome.css')}}">
       <!--[if lt IE 8]>
-      <link rel="stylesheet" href="css/ie.css" type="text/css" media="screen, projection">
+      <link rel="stylesheet" href ="{{ asset('homes/css/ie.css')}}" type="text/css')}}" media="screen, projection">
       <![endif]-->
       <link href ="{{ asset('homes/css/lity.css')}}" rel="stylesheet">
    </head>
    <body>
-      <!-- LOGIN -->
-      <div id="login" class="container-fluid standard-bg">
+      <!-- GALLERY VIDEO GRID BOXED -->
+      <div id="single-video-right-sidebar" class="container-fluid standard-bg">
          <!-- HEADER -->
-         <div class="row header-top">
-            <div class="col-lg-3 col-md-6 col-sm-5">
-               <a class="main-logo" href="#"><img src="{{ asset('homes/img/main-logo.png')}}" class="main-logo" alt="Muvee Reviews" title="Muvee Reviews"></a>
-            </div>
+        <div class="row header-top">
+   <div class="col-lg-3 col-md-6 col-sm-5 col-xs-8">
+      <a class="main-logo" href="#"><img src="{{ asset('homes/img/main-logo.png')}}" class="main-logo img-responsive" alt="Muvee Reviews" title="Muvee Reviews"></a>
+   </div>
             <div class="col-lg-6 hidden-md text-center hidden-sm hidden-xs">
-               <img src="{{ asset('homes/img/banners/banner-sm.jpg')}}" class="img-responsive" alt="Buy Now">
+               <img src="{{ asset('homes/img/banners/banner-sm.jpg' ) }}" class="img-responsive" alt="Buy Now">
             </div>
             <div class="col-lg-3 col-md-6 col-sm-7 hidden-xs">
+              
                
                <div class="right-box">
                   <a href="{{ url('/login') }}"><button type="button" class="access-btn">登录</button></a>
@@ -84,88 +85,29 @@
                </nav>
             </div>
          </div>
-         <!-- LOGIN -->
+         <!-- GALLERY VIDEO GRID BOXED -->
          <div class="row">
             <div class="container">
-               <section class="registration col-lg-12 col-md-12">
-                  <div class="row secBg">
-                     <div class="large-12 columns">
-                        <div class="login-register-content">
-                           <div class="row" data-equalizer data-equalize-on="medium" id="test-eq">
-                              <div class="col-md-12 text-center login-header">
-                                 <h2 class="title main-head-title">User Login - Get Premium</h2>
-                                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
-                              </div>
-                              <div class="clearfix spacer"></div>
-                              <div class="col-md-5 social-login">
-                                 <div class="social-login" data-equalizer-watch>
-                                    <h2 class="title main-head-title">Login via Social Profile</h2>
-                                    <div class="social-login-btn social-facebook">
-                                       <a href="#"><i class="fa fa-facebook"></i>login via facebook</a>
-                                    </div>
-                                    <div class="social-login-btn social-twitter">
-                                       <a href="#"><i class="fa fa-twitter"></i>login via twitter</a>
-                                    </div>
-                                    <div class="social-login-btn social-google-plus">
-                                       <a href="#"><i class="fa fa-google-plus"></i>login via google plus</a>
-                                    </div>
-                                    <div class="social-login-btn social-youtube">
-                                       <a href="#"><i class="fa fa-youtube"></i>login via YouTube</a>
-                                    </div>
-                                 </div>
-                              </div>
-                              <div class="col-md-2">
-                                 <div class="middle-sep">
-                                    <i class="fa fa-arrow-left arrow-left"></i>
-                                    <span>OR</span>
-                                    <i class="fa fa-arrow-right arrow-right"></i>
-                                 </div>
-                              </div>
-                              <div class="col-md-5">
-                                 <div class="register-form">
-                                    <h2 class="title main-head-title">请登录</h2>
-
-                                               @if (session('msg'))
-                                    <script>
-                                        alert("{{ session('msg') }}");
-
-                                    </script>
-                                       @endif
-                                    <form method="post" data-abide  action="/login">
-                                       {{ csrf_field() }}
-
-                                       <div class="input-group">
-                                          <span class="fa fa-user login-inputicon"></span>
-                                          <input type="text" name="tel" placeholder="输入账号" >
-                                       </div>
-                                       <div class="input-group">
-                                          <span class="fa fa-lock login-inputicon"></span>
-                                          <input type="password" id="password" name="password" placeholder="输入密码" required> 
-                                       </div>
-                                       <div class="checkbox">
-                                          <input id="remember" type="checkbox" name="check" value="remember">
-                                          <label class="customLabel" for="remember">记住密码</label>
-                                       </div>
-                                       <div class="login-btn-box">
-                                          <button class="access-btn" type="submit" name="submit">登录</button>
-                                       </div>
-                                    </form>
-                                 </div>
-                              </div>
-                           </div>
+               <div class="row">
+                  <!-- VIDEO POSTS --> 
+                  <div class="col-lg-12 col-md-12">
+                     <!-- GALLERY VIDEO GRID SECTION -->
+                     <section id="gallery-video-section">
+                        <div class="row">
+                               @yield('content')
                         </div>
-                     </div>
+                     </section>
                   </div>
-               </section>
-            </div>
-            <!-- BOTTOM BANNER -->
-            <div id="bottom-banner" class="container text-center">
-               <!-- BOTTOM ADVERTISE BOX -->
-               <a href="" class="banner-xl">
-               <img src="{{ asset('homes/img/banners/banner-xl.jpg')}}" class="img-responsive" alt="Buy Now Muvee Reviews Bootstrap HTML5 Template" title="Buy Now Muvee Reviews Bootstrap HTML5 Template">
-               </a>     
+               </div>
             </div>
          </div>
+      </div>
+      <!-- BOTTOM BANNER -->
+      <div id="bottom-banner" class="container text-center">
+         <!-- BOTTOM ADVERTISE BOX -->
+         <a href="" class="banner-xl">
+         <img src="{{ asset('homes/img/banners/banner-xl.jpg')}}" class="img-responsive" alt="Buy Now Muvee Reviews Bootstrap HTML5 Template" title="Buy Now Muvee Reviews Bootstrap HTML5 Template">
+         </a>		
       </div>
       <!-- FOOTER -->
       <div id="footer" class="container-fluid footer-background">
@@ -265,7 +207,7 @@
                   <div class="col-md-12 text-center">
                      <a href="" class="footer-logo" title="Video Magazine Bootstrap HTML5 template">
                      <img src="{{ asset('homes/img/footer-logo.png')}}" class="img-responsive text-center" alt="Video Magazine Bootstrap HTML5 template">
-                     </a>  
+                     </a>	
                      <p>Copyright &copy; 2017.Company name All rights reserved.<a target="_blank" href="http://sc.chinaz.com/moban/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a></p>
                      
                   </div>
@@ -275,11 +217,32 @@
       </div>
       <!-- JAVA SCRIPT -->
       <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-      <script src="{{ asset('/homes/js/jquery-1.12.1.min.js')}}"></script>
-      <script src="{{ asset('/homes/js/bootstrap.min.js')}}"></script>
+      <script src="{{ asset('homes/js/jquery-1.12.1.min.js')}}"></script>
+      <script src="{{ asset('homes/js/bootstrap.min.js')}}"></script>
+      <script src="{{ asset('homes/js/lity.js')}}"></script>
       <script>
          $(".nav .dropdown").hover(function() {
            $(this).find(".dropdown-toggle").dropdown("toggle");
+         });
+         $(document).ready(function(){
+             $(".filter-button").click(function(){
+                 var value = $(this).attr('data-filter');
+                 
+                 if(value == "all")
+                 {
+                     //$('.filter').removeClass('hidden');
+                     $('.filter').show('1000');
+                 }
+                 else
+                 {
+         //            $('.filter[filter-item="'+value+'"]').removeClass('hidden');
+         //            $(".filter").not('.filter[filter-item="'+value+'"]').addClass('hidden');
+                     $(".filter").not('.'+value).hide('3000');
+                     $('.filter').filter('.'+value).show('3000');
+                     
+                 }
+             });
+         
          });
       </script>
       <!-- MODAL -->
@@ -294,13 +257,30 @@
                <div class="modal-body">
                   <form name="info_form" class="form-inline" action="#" method="post">
                      <div class="form-group col-sm-12">
-                        <input type="text" class="form-control" name="name" id="name" placeholder="Enter Name">
+                        <input type="text" class="form-control" name="name" id="name" placeholder="用户名/手机号/邮箱">
                      </div>
                      <div class="form-group col-sm-12">
-                        <input type="email" class="form-control" name="email" id="email" placeholder="Enter Email">
+                        <input type="password" class="form-control" name="password" id="password" placeholder="密码">
                      </div>
                      <div class="form-group col-sm-12">
-                        <button class="subscribe-btn pull-right" type="submit" title="Subscribe">Subscribe</button>
+                        <button class="subscribe-btn pull-right" type="submit" title="Subscribe">登录</button>
+                     </div>
+                  </form>
+               </div>
+               <div class="modal-body">
+                  <form name="info_form" class="form-inline" action="#" method="post">
+                     <div class="form-group col-sm-12">
+                        <input type="text" class="form-control" name="name" id="name" placeholder="">
+                     </div>
+                     <div class="form-group col-sm-12">
+                        <input type="text" class="form-control" name="password" id="password" placeholder="密码">
+                     </div>
+                     <div class="form-group col-sm-12">
+                        <input type="text" class="form-control" name="tel" id="tel" placeholder="">
+                     </div>
+                     
+                     <div class="form-group col-sm-12">
+                        <button class="subscribe-btn pull-right" type="submit" title="Subscribe">登录</button>
                      </div>
                   </form>
                </div>
