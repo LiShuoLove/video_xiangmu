@@ -23,6 +23,13 @@ Route::get('/', function () {
 Route::get('/contact','home\conController@index');
 Route::get('/home','home\HomeController@index');
 
+//登录
+Route::get('/login','home\LoginController@index');
+Route::post('/login', 'home\LoginController@dologin');
+//注册
+Route::get('/register', 'home\LoginController@register');
+Route::post('/register', 'home\LoginController@doregister');
+
 //后台
 //后台首页
 Route::get('/admins','admin\AdminController@index');
@@ -68,3 +75,12 @@ Route::get('/examine','admin\ExamineController@examine');
 Route::get('/order','admin\orderController@index');
 //订单操作
 Route::resource('/order','admin\orderController');
+
+//上传图片和视频
+Route::post('/uploads','admin\ListController@doUpload');
+
+Route::post('/uploadsss','admin\ListController@uploadsss');
+//修改
+//视频列表
+Route::resource('/lists','admin\ListController');
+

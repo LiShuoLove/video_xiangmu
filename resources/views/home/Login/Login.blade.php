@@ -8,7 +8,7 @@
       <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
       <title></title>
       <!-- Bootstrap core CSS -->
-      <link href ="{{ asset('homes/css/bootstrap.css')}}" rel="stylesheet">
+      <link href = "{{ asset('homes/css/bootstrap.css')}}" rel="stylesheet">
       <!-- Custom styles for this template -->
       <link rel="stylesheet" href ="{{ asset('homes/css/screen.css')}}">
       <link rel="stylesheet" href ="{{ asset('homes/css/animation.css')}}">
@@ -17,24 +17,31 @@
       <![endif]-->
       <link rel="stylesheet" href ="{{ asset('homes/css/font-awesome.css')}}">
       <!--[if lt IE 8]>
-      <link rel="stylesheet" href ="{{ asset('homes/css/ie.css')}}" type="text/css')}}" media="screen, projection">
+      <link rel="stylesheet" href="css/ie.css" type="text/css" media="screen, projection">
       <![endif]-->
       <link href ="{{ asset('homes/css/lity.css')}}" rel="stylesheet">
    </head>
    <body>
-      <!-- CONTACT -->
-      <div id="contact" class="container-fluid review-bg">
+      <!-- LOGIN -->
+      <div id="login" class="container-fluid standard-bg">
          <!-- HEADER -->
          <div class="row header-top">
-            <div class="col-lg-3 col-md-6 col-sm-5 col-xs-8">
-               <a class="main-logo" href="#"><img src="{{ asset('homes/img/main-logo.png' )}}" class="main-logo img-responsive" alt="Muvee Reviews" title="Muvee Reviews"></a>
+            <div class="col-lg-3 col-md-6 col-sm-5">
+               <a class="main-logo" href="#"><img src="{{ asset('homes/img/main-logo.png')}}" class="main-logo" alt="Muvee Reviews" title="Muvee Reviews"></a>
             </div>
             <div class="col-lg-6 hidden-md text-center hidden-sm hidden-xs">
-               <img src="{{ asset('homes/img/banners/banner-sm.jpg' )}}"" class="img-responsive" alt="banner-sm">
+               <img src="{{ asset('homes/img/banners/banner-sm.jpg')}}" class="img-responsive" alt="Buy Now">
             </div>
             <div class="col-lg-3 col-md-6 col-sm-7 hidden-xs">
+               
                <div class="right-box">
-                  <button type="button" class="access-btn" data-toggle="modal" data-target="#enquirypopup">登录</button>
+                  <a href="{{ url('/login') }}"><button type="button" class="access-btn">登录</button></a>
+               </div>
+               <div class="right-box">
+                  <a href="{{ url('/register') }}"><button type="button" class="access-btn">注册</button></a>
+               </div>
+               <div class="right-box">
+                  <button type="button" class="access-btn">个人中心</button>
                </div>
             </div>
          </div>
@@ -52,13 +59,13 @@
                   </div>
                   <div class="collapse navbar-collapse js-navbar-collapse megabg dropshd ">
                      <ul class="nav navbar-nav">
-                        <li><a href="index.html">首页</a></li>
-						<li><a href="single-video.html">视频列表</a></li>
-						<li><a href="single-page.html">视频信息</a></li>
-						<li><a href="single-page-with-img.html">视频图片</a></li>
-						<li><a href="login.html">登录页面</a></li>
-						<li><a href="gallery-video-boxed.html">所有视频</a></li>
-						<li><a href="contact.html">留言</a></li>
+                        <li><a href="{{ url('/home') }}">Home</a></li>
+                  <li><a href="single-video.html">Video Post</a></li>
+                  <li><a href="single-page.html">Single Page - Basic</a></li>
+                  <li><a href="single-page-with-img.html">Single Page - with Image</a></li>
+                  <li><a href="{{ url('/login') }}">Login</a></li>
+                  <li><a href="gallery-video-boxed.html">Gallery</a></li>
+                  <li><a href="contact.html">Contact</a></li>
                      </ul>
                      <ul class="social">
                         <li class="social-facebook"><a href="#" class="fa fa-facebook social-icons"></a></li>
@@ -77,92 +84,88 @@
                </nav>
             </div>
          </div>
-         <!-- CONTACT -->
-         <div class="row auto-clear">
-            <!-- CONTACT PAGE -->	
-            <div class="col-lg-12 col-md-12">
-               <div id="contact-page" class="row">
-                  <!-- CONTACT PAGE DETAILS -->
-                  <div class="col-md-12">
-                     <div class="content-box-opa dark-bg">
-                        <article>
-                           <div class="row">
-                              <div class="col-lg-4 col-md-4 col-sm-12 post post-medium">
-                                 <h2 class="title main-head-title text-left">图片</h2>
-                                 <div class="map-frame">
-                                    <iframe class="img-responsive" height="450" style="border:0" src="http://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=hu&amp;geocode=&amp;q=2+Elizabeth+St,+Melbourne+Victoria+3000+Australia&amp;sll=37.0625,-95.677068&amp;sspn=46.226656,107.138672&amp;ie=UTF8&amp;hq=&amp;hnear=2+Elizabeth+St,+Victoria+3000,+Ausztr%C3%A1lia&amp;t=m&amp;z=14&amp;ll=-37.817917,144.965065&amp;output=embed"></iframe>
+         <!-- LOGIN -->
+         <div class="row">
+            <div class="container">
+               <section class="registration col-lg-12 col-md-12">
+                  <div class="row secBg">
+                     <div class="large-12 columns">
+                        <div class="login-register-content">
+                           <div class="row" data-equalizer data-equalize-on="medium" id="test-eq">
+                              <div class="col-md-12 text-center login-header">
+                                 <h2 class="title main-head-title">User Login - Get Premium</h2>
+                                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+                              </div>
+                              <div class="clearfix spacer"></div>
+                              <div class="col-md-5 social-login">
+                                 <div class="social-login" data-equalizer-watch>
+                                    <h2 class="title main-head-title">Login via Social Profile</h2>
+                                    <div class="social-login-btn social-facebook">
+                                       <a href="#"><i class="fa fa-facebook"></i>login via facebook</a>
+                                    </div>
+                                    <div class="social-login-btn social-twitter">
+                                       <a href="#"><i class="fa fa-twitter"></i>login via twitter</a>
+                                    </div>
+                                    <div class="social-login-btn social-google-plus">
+                                       <a href="#"><i class="fa fa-google-plus"></i>login via google plus</a>
+                                    </div>
+                                    <div class="social-login-btn social-youtube">
+                                       <a href="#"><i class="fa fa-youtube"></i>login via YouTube</a>
+                                    </div>
                                  </div>
                               </div>
-                              <div class="col-lg-4 col-md-4 col-sm-12">
-                                 <h2 class="title main-head-title text-left">给我们留言</h2>
-                                 <p class="text-justify">
-                                    如果对我们有什么意见：欢迎留言！！！！！ 
-                                 </p>
-                                 <div class="contact-info">
-                                    <h3>联系我们</h3>
-                                    <ul>
-                                       <li class="fa fa-chevron-right">地址: 地球村</li>
-                                       <li class="fa fa-chevron-right">手机号: 088 985 789</li>
-                                       <li class="fa fa-chevron-right">电子邮箱: <a href="#">mail@yourdomain.com</a></li>
-                                    </ul>
+                              <div class="col-md-2">
+                                 <div class="middle-sep">
+                                    <i class="fa fa-arrow-left arrow-left"></i>
+                                    <span>OR</span>
+                                    <i class="fa fa-arrow-right arrow-right"></i>
                                  </div>
-                                 <div class="contact-info">
-                                    <h3>John Doe / Marketing Manager</h3>
-                                    <ul>
-                                       <li class="fa fa-chevron-right">Address: 1324 New York, 14. str.</li>
-                                       <li class="fa fa-chevron-right">Phone: 088 985 789</li>
-                                       <li class="fa fa-chevron-right">E-mail: <a href="#">mail@yourdomain.com</a></li>
-                                    </ul>
-                                 </div>
-                                 <ul class="social">
-                                    <li class="social-facebook"><a href="#" class="fa fa-facebook social-icons"></a></li>
-                                    <li class="social-google-plus"><a href="#" class="fa fa-google-plus social-icons"></a></li>
-                                    <li class="social-twitter"><a href="#" class="fa fa-twitter social-icons"></a></li>
-                                    <li class="social-youtube"><a href="#" class="fa fa-youtube social-icons"></a></li>
-                                    <li class="social-rss"><a href="#" class="fa fa-rss social-icons"></a></li>
-                                 </ul>
                               </div>
-                              <div class="col-lg-4 col-md-4 col-sm-12">
-                                 <h2 class="title main-head-title text-left">get in touch</h2>
-                                 <div id="comment-form">
-                                    <!-- COMMENT FORM -->
-                                    <form name="comment-form1" method="post" action="#" id="comment-form1">
-                                       <fieldset>
-                                          <div class="row">
-                                             <div class="col-md-12">
-                                                <input type="text" name="contactname" id="contactname" placeholder="Your name" value="你的名字" onfocus="if (this.value=='你的名字') this.value = ''">
-                                             </div>
-                                             <div class="col-md-12">
-                                                <input type="text" name="contactemail" id="contactemail" placeholder="Enter your email address" value="邮箱地址" onfocus="if (this.value=='邮箱地址') this.value = ''">
-                                             </div>
-                                             <div class="col-md-12">
-                                                <textarea rows="10" name="comment" id="comment" cols="5">留言内容</textarea>
-                                             </div>
-                                             <div class="col-md-12">
-                                                <button class="subscribe-btn" type="submit" title="Send Message">提交</button>
-                                             </div>
-                                          </div>
-                                       </fieldset>
+                              <div class="col-md-5">
+                                 <div class="register-form">
+                                    <h2 class="title main-head-title">请登录</h2>
+
+                                               @if (session('msg'))
+                                    <script>
+                                        alert("{{ session('msg') }}");
+
+                                    </script>
+                                       @endif
+                                    <form method="post" data-abide  action="/login">
+                                       {{ csrf_field() }}
+
+                                       <div class="input-group">
+                                          <span class="fa fa-user login-inputicon"></span>
+                                          <input type="text" name="tel" placeholder="输入账号" >
+                                       </div>
+                                       <div class="input-group">
+                                          <span class="fa fa-lock login-inputicon"></span>
+                                          <input type="password" id="password" name="password" placeholder="输入密码" required> 
+                                       </div>
+                                       <div class="checkbox">
+                                          <input id="remember" type="checkbox" name="check" value="remember">
+                                          <label class="customLabel" for="remember">记住密码</label>
+                                       </div>
+                                       <div class="login-btn-box">
+                                          <button class="access-btn" type="submit" name="submit">登录</button>
+                                       </div>
                                     </form>
                                  </div>
-                                 <!-- COMMENT FORM END -->
                               </div>
                            </div>
-                           <div class="clearfix spacer"></div>
-                        </article>
+                        </div>
                      </div>
                   </div>
-               </div>
-               <div class="clearfix spacer"></div>
+               </section>
+            </div>
+            <!-- BOTTOM BANNER -->
+            <div id="bottom-banner" class="container text-center">
+               <!-- BOTTOM ADVERTISE BOX -->
+               <a href="" class="banner-xl">
+               <img src="{{ asset('homes/img/banners/banner-xl.jpg')}}" class="img-responsive" alt="Buy Now Muvee Reviews Bootstrap HTML5 Template" title="Buy Now Muvee Reviews Bootstrap HTML5 Template">
+               </a>     
             </div>
          </div>
-      </div>
-      <!-- BOTTOM BANNER -->
-      <div id="bottom-banner" class="container-fluid text-left">
-         <!-- BOTTOM ADVERTISE BOX -->
-         <a href="" class="banner-xl">
-         <img src="{{ asset('homes/img/banners/banner-xl.jpg' )}}"" class="img-responsive" alt="Buy Now Muvee Reviews Bootstrap HTML5 Template" title="Buy Now Muvee Reviews Bootstrap HTML5 Template">
-         </a>		
       </div>
       <!-- FOOTER -->
       <div id="footer" class="container-fluid footer-background">
@@ -213,7 +216,7 @@
                               <a class="post-thumb" href="" data-lity title="Video Title Goes Here">
                                  <span class="play-btn-border" title="Play"><i class="fa fa-play-circle headline-round" aria-hidden="true"></i></span>
                                  <div class="cactus-note ct-time font-size-1"><span>02:02</span></div>
-                                 <img class="img-responsive" src="{{ asset('homes/img/thumbs/thumb-s.jpg' )}}"" alt="#">
+                                 <img class="img-responsive" src="{{ asset('homes/img/thumbs/thumb-s.jpg')}}" alt="#">
                               </a>
                            </div>
                         </div>
@@ -222,7 +225,7 @@
                               <a class="post-thumb" href="" data-lity title="Video Title Goes Here">
                                  <span class="play-btn-border" title="Play"><i class="fa fa-play-circle headline-round" aria-hidden="true"></i></span>
                                  <div class="cactus-note ct-time font-size-1"><span>02:02</span></div>
-                                 <img class="img-responsive" src="{{ asset('homes/img/thumbs/thumb-s2.jpg' )}}"" alt="#">
+                                 <img class="img-responsive" src="{{ asset('homes/img/thumbs/thumb-s2.jpg')}}" alt="#">
                               </a>
                            </div>
                         </div>
@@ -231,7 +234,7 @@
                               <a class="post-thumb" href="" data-lity title="Video Title Goes Here">
                                  <span class="play-btn-border" title="Play"><i class="fa fa-play-circle headline-round" aria-hidden="true"></i></span>
                                  <div class="cactus-note ct-time font-size-1"><span>02:02</span></div>
-                                 <img class="img-responsive" src="{{ asset('homes/img/thumbs/thumb-s4.jpg' )}}"" alt="#">
+                                 <img class="img-responsive" src="{{ asset('homes/img/thumbs/thumb-s4.jpg')}}" alt="#">
                               </a>
                            </div>
                         </div>
@@ -240,7 +243,7 @@
                               <a class="post-thumb" href="" data-lity title="Video Title Goes Here">
                                  <span class="play-btn-border" title="Play"><i class="fa fa-play-circle headline-round" aria-hidden="true"></i></span>
                                  <div class="cactus-note ct-time font-size-1"><span>02:02</span></div>
-                                 <img class="img-responsive" src="{{ asset('homes/img/thumbs/thumb-s3.jpg' )}}"" alt="#">
+                                 <img class="img-responsive" src="{{ asset('homes/img/thumbs/thumb-s3.jpg')}}" alt="#">
                               </a>
                            </div>
                         </div>
@@ -261,8 +264,8 @@
                <div class="row copyright-bottom text-center">
                   <div class="col-md-12 text-center">
                      <a href="" class="footer-logo" title="Video Magazine Bootstrap HTML5 template">
-                     <img src="{{ asset('homes/img/footer-logo.png' )}}" class="img-responsive text-center" alt="Video Magazine Bootstrap HTML5 template">
-                     </a>	
+                     <img src="{{ asset('homes/img/footer-logo.png')}}" class="img-responsive text-center" alt="Video Magazine Bootstrap HTML5 template">
+                     </a>  
                      <p>Copyright &copy; 2017.Company name All rights reserved.<a target="_blank" href="http://sc.chinaz.com/moban/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a></p>
                      
                   </div>
@@ -272,9 +275,8 @@
       </div>
       <!-- JAVA SCRIPT -->
       <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-      <script src="{{ asset('homes/js/jquery-1.12.1.min.js')}}"></script>
-      <script src="{{ asset('homes/js/bootstrap.min.js')}}"></script>
-      <script src="{{ asset('homes/js/lity.js')}}"></script>
+      <script src="{{ asset('/homes/js/jquery-1.12.1.min.js')}}"></script>
+      <script src="{{ asset('/homes/js/bootstrap.min.js')}}"></script>
       <script>
          $(".nav .dropdown").hover(function() {
            $(this).find(".dropdown-toggle").dropdown("toggle");
