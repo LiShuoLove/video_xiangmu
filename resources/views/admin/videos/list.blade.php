@@ -24,7 +24,7 @@
                                     <div class="am-form-group">
                                         <div class="am-btn-toolbar">
                                             <div class="tpl-table-black-operation">
-                                                <a href="{{url('/lists/create')}}">
+                                                <a href="{{url('admin/lists/create')}}">
                                                     <i class="am-icon-pencil"></i> 新增视频
                                                 </a>
                                             </div>
@@ -32,7 +32,7 @@
                                     </div>
                                 </div>
                                 <div class="am-u-sm-12 am-u-md-12 am-u-lg-6">
-                                	<form action="{{url('lists')}}">
+                                	<form action="{{url('admin/lists')}}">
                                         <div class="am-input-group am-input-group-sm tpl-form-border-form cl-p">
                                          
                                             <input type="text" name="video_info_name" class="am-form-field " placeholder="搜索视频名称">
@@ -89,7 +89,7 @@
 
                                                 <td class="am-text-middle">
                                                     <div class="tpl-table-black-operation">
-                                                        <a href="{{ url('lists/'.$v->id.'/edit') }}">
+                                                        <a href="{{ url('admin/lists/'.$v->id.'/edit') }}">
                                                             <i class="am-icon-pencil"></i> 编辑
                                                         </a>
                                                         <a href="javascript:doDel({{ $v->id }})"class="tpl-table-black-operation-del">

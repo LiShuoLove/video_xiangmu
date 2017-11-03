@@ -36,7 +36,7 @@
                                 </div>
                                 
                                 <div class="am-u-sm-12 am-u-md-12 am-u-lg-6">
-                                    <form action="{{url('comment')}}" method="get">
+                                    <form action="{{url('admin/comment')}}" method="get">
                                         <div class="am-input-group am-input-group-sm tpl-form-border-form cl-p">
                                          
                                             <input type="text" name="guanjianzi" class="am-form-field ">
@@ -74,7 +74,7 @@
                                                 <td>{{ $comment->content }}</td>
                                                 <td>
                                                     <div class="tpl-table-black-operation">
-                                                        <a href="{{ url('comment/'.$comment->id.'/edit') }}">
+                                                        <a href="{{ url('admin/comment/'.$comment->id.'/edit') }}">
                                                             <i class="am-icon-pencil"></i> 编辑
                                                         </a>
                                                         <a href="javascript:doDel({{ $comment->id }})" class="tpl-table-black-operation-del">

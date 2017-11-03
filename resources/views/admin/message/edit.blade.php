@@ -19,7 +19,7 @@
                             </div>
                             <div class="widget-body am-fr">
 
-                                <form class="am-form tpl-form-border-form tpl-form-border-br" action="{{ url('/message_edit') }}" method='post'>
+                                <form class="am-form tpl-form-border-form tpl-form-border-br" action="{{ url('admin/message_edit') }}" method='post'>
                                       {{ csrf_field() }}
                                       @foreach($list as $v)
                                 

@@ -24,7 +24,7 @@
                             </div>
                             <div class="widget-body am-fr">
 
-                                <form id="art_form" class="am-form tpl-form-line-form" action="{{ url('lists/'.$data_video_info->id)}}" method='post' enctype="multipart/form-data">
+                                <form id="art_form" class="am-form tpl-form-line-form" action="{{ url('admin/lists/'.$data_video_info->id)}}" method='post' enctype="multipart/form-data">
                                 	{{ csrf_field() }}
                                     {{ method_field('PUT') }}
                                 	<div class="am-form-group">

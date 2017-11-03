@@ -5,7 +5,7 @@
 
                     <div class="widget-body am-fr">
                                            
-                                <form class="am-form tpl-form-border-form tpl-form-border-br" action="{{ url('users') }}" method='post'>
+                                <form class="am-form tpl-form-border-form tpl-form-border-br" action="{{ url('admin/users') }}" method='post'>
                                                   {{ csrf_field() }}
                                     <div class="am-form-group">
                                         <label for="user-name" class="am-u-sm-3 am-form-label">用户id <span class="tpl-form-line-small-title">user_id</span></label>

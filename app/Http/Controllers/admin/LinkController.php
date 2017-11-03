@@ -52,7 +52,7 @@
 
 			$id = DB::table('data_video_Connect')->insertGetid($link);
 			if ($id > 0) {
-				return redirect('/link')->with('msg','添加成功');
+				return redirect('admin/link')->with('msg','添加成功');
 			}
 			
 		}
@@ -75,9 +75,9 @@
 			$res = DB::table('data_video_Connect')->where('id', $id)->update($link);
 			// dd($res);
 			if ($res > 0) {
-				return redirect('/link')->with('msg','添加成功');
+				return redirect('admin/link')->with('msg','添加成功');
 			}else{
-				return redirect('/link')->with('msg','添加失败');
+				return redirect('admin/link')->with('msg','添加失败');
 			}
 		}
 
@@ -90,9 +90,9 @@
 			// dd($del);
 			$res = DB::table('data_video_Connect')->where('id', $del)->delete();
 	        if($res > 0){
-	            return redirect('/link')->with('msg', '删除成功');
+	            return redirect('admin/link')->with('msg', '删除成功');
 	        }else{
-	            return redirect('/link')->with('msg', '删除失败');
+	            return redirect('admin/link')->with('msg', '删除失败');
 	        }
 		}
 	}

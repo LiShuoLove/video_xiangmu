@@ -81,7 +81,7 @@ class userController extends Controller
         // // //如果有id说明添加成功
         if($id > 0){
         // //     //跳转到/user路由，携带一个闪存
-           return redirect('/user')->with('msg','添加成功');
+           return redirect('admin/user')->with('msg','添加成功');
 
        }
     }
@@ -132,9 +132,9 @@ class userController extends Controller
 
         $res = DB::table('data_user_info')->where('id', $id)->update($data);
         if($res > 0){
-            return redirect('/users')->with('msg', '修改成功');
+            return redirect('admin/users')->with('msg', '修改成功');
         }else{
-            return redirect('/users')->with('msg', '修改失败(或者并未修改)');
+            return redirect('admin/users')->with('msg', '修改失败(或者并未修改)');
         }
     }
 
@@ -153,9 +153,9 @@ class userController extends Controller
          $res = DB::table('data_user_info')->where('id', $id)->delete();
         // dd($res);
                  if($res > 0){
-                 return redirect('/user')->with('msg', '删除成功');
+                 return redirect('admin/user')->with('msg', '删除成功');
                      }else{
-                 return redirect('/user')->with('msg', '删除失败');
+                 return redirect('admin/user')->with('msg', '删除失败');
                  }
     }
 }

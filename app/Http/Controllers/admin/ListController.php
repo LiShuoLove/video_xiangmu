@@ -92,7 +92,7 @@ class ListController extends Controller
         //如果有id说明添加成功
         if($id > 0){
             //跳转到/video,添加闪存
-            return redirect('/lists')->with('msg','添加成功');
+            return redirect('admin/lists')->with('msg','添加成功');
         }
         //dd($res);
     }
@@ -143,9 +143,9 @@ class ListController extends Controller
         $data = $request->except('_token', '_method','query_string');
         $res = DB::table('data_video_info')->where('id', $id)->update($data);
         if($res > 0){
-            return redirect('/lists')->with('msg', '修改成功');
+            return redirect('admin/lists')->with('msg', '修改成功');
         }else{
-            return redirect('/lists')->with('msg', '修改失败(或未修改)');
+            return redirect('admin/lists')->with('msg', '修改失败(或未修改)');
         }
         // dd($res);
     }
@@ -163,9 +163,9 @@ class ListController extends Controller
         $res =  DB::table('data_video_info')->where('id', $id)->delete();
         // dd($res);
         if($res > 0){
-            return redirect('/lists')->with('msg', '删除成功');
+            return redirect('admin/lists')->with('msg', '删除成功');
         }else{
-            return redirect('/lists')->with('msg', '删除失败');
+            return redirect('admin/lists')->with('msg', '删除失败');
         }
     }
 
@@ -202,6 +202,21 @@ class ListController extends Controller
         // echo $key2;
             
      }
+
+    public function upload()
+    {
+        //获取上传的文件对象
+        $file = Input::file('file_upload');
+        //判断文件是否有效
+        if($file->isValid()){
+            $entension = $file->getClientOriginalExtension();//上传文件的后缀名
+            $newName = date('YmdHis').mt_rand(1000,9999).'.'.$entension;
+            $path = $file->move('upload',$newName);
+            $filepath = 'upload/'.$newName;
+            //返回文件的路径
+            return  $filepath;
+        }
+    }
         
 }
 

@@ -16,7 +16,7 @@
                                 </div>
                             </div>
                             <div class="widget-body am-fr">
-                                <form class="am-form tpl-form-border-form tpl-form-border-br" action="{{ url('/advertising_edit') }}" method="post" enctype="multipart/form-data">
+                                <form class="am-form tpl-form-border-form tpl-form-border-br" action="{{ url('admin/advertising_edit') }}" method="post" enctype="multipart/form-data">
                                 {{ csrf_field() }}
                                 @foreach($list as $v)
                                     <div class="am-form-group">

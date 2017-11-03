@@ -17,7 +17,7 @@
                                 </div>
                                 <div class="widget-body am-fr">
 
-                                    <form action="{{ url('comment') }}" method="post" class="am-form tpl-form-line-form">
+                                    <form action="{{ url('admin/comment') }}" method="post" class="am-form tpl-form-line-form">
                                         {{ csrf_field() }}
                                         <div class="am-form-group">
                                             <label for="user-phone" class="am-u-sm-3 am-form-label">视频类 <span class="tpl-form-line-small-title">所有类</span></label>

@@ -34,7 +34,7 @@
                                             </select>
                                     </div>
                                 </div>
-                                <form action="{{ url('users') }}">
+                                <form action="{{ url('admin/users') }}">
                                 <div class="am-u-sm-12 am-u-md-12 am-u-lg-3">
                                     <div class="am-input-group am-input-group-sm tpl-form-border-form cl-p">
                                          <input type="text" class="am-form-field " name="username">
@@ -57,7 +57,7 @@
                                                  </form>
                                 <div class="am-u-sm-12">
                                     <table width="100%" class="am-table am-table-compact am-table-striped tpl-table-black " id="example-r">
-                                   <form action="{{ url('users') }}">
+                                   <form action="{{ url('admin/users') }}">
                                     <div class="am-form-group tpl-table-list-select">
                                          状态<select data-am-selected="{btnSize: 'sm'}" name="users_status">
                                                  <option value="1">普通会员</option>
@@ -96,11 +96,11 @@
                                               
                                                 <td>
                                                     <div class="tpl-table-black-operation">
-                                                        <a href="{{url('/users/create')}}">
+                                                        <a href="{{url('admin/users/create')}}">
                                                             <i class="am-icon-pencil"></i> 增加
                                                         </a>
                                                         
-                                                        <a href="{{url('users/'.$v->id .'/edit')}}" class="tpl-table-black-operation-del">
+                                                        <a href="{{url('admin/users/'.$v->id .'/edit')}}" class="tpl-table-black-operation-del">
                                                             <i class="am-icon-trash"></i> 修改
                                                         </a>
                                                         <a href="javascript:doDel({{ $v->id }})" class="tpl-table-black-operation-del">

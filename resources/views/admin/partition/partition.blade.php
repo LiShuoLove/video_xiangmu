@@ -65,10 +65,10 @@
                                                   <td class="am-text-middle">{{ $c->partname }}</td>
                                                 <td class="am-text-middle">
                                                     <div class="tpl-table-black-operation">
-                                                        <a href="/partition_edit?id={{$c->id}}">
+                                                        <a href="partition_edit?id={{$c->id}}">
                                                             <i class="am-icon-pencil"></i> 编辑
                                                         </a>
-                                                        <a href="/partition_del?id={{$c->id}}" class="tpl-table-black-operation-del">
+                                                        <a href="partition_del?id={{$c->id}}" class="tpl-table-black-operation-del">
                                                             <i class="am-icon-trash"></i> 删除
                                                         </a>
                                                     </div>

@@ -17,7 +17,7 @@
                                 </div>
                                 <div class="widget-body am-fr">
 
-                                    <form action="{{ url('comment/'.$comment->id)}}" method="post" class="am-form tpl-form-line-form">
+                                    <form action="{{ url('admin/comment/'.$comment->id)}}" method="post" class="am-form tpl-form-line-form">
                                         {{ csrf_field() }}
                                         {{ method_field('PUT') }}
                                         <div class="am-form-group">

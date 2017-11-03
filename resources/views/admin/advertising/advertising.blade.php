@@ -86,10 +86,10 @@
                                                   <td class="am-text-middle">{{ $v->ontime }}—{{ $v->offtime }}</td>
                                                 <td class="am-text-middle">
                                                     <div class="tpl-table-black-operation">
-                                                        <a href="/advertising_edit?id={{$v->id}}">
+                                                        <a href="advertising_edit?id={{$v->id}}">
                                                             <i class="am-icon-pencil"></i> 编辑
                                                         </a>
-                                                        <a href="/advertising_del?id={{$v->id}}" class="tpl-table-black-operation-del">
+                                                        <a href="advertising_del?id={{$v->id}}" class="tpl-table-black-operation-del">
                                                             <i class="am-icon-trash"></i> 删除
                                                         </a>
                                                     </div>

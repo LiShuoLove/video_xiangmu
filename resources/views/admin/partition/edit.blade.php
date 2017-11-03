@@ -16,7 +16,7 @@
                             </div>
                             <div class="widget-body am-fr">
 
-                                <form class="am-form tpl-form-border-form tpl-form-border-br" action="{{ url('/partition_edit') }}" method="post">
+                                <form class="am-form tpl-form-border-form tpl-form-border-br" action="{{ url('admin/partition_edit') }}" method="post">
                                 {{ csrf_field() }}
                                 @foreach($list as $v)
                                     <div class="am-form-group">

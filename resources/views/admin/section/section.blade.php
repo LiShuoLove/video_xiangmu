@@ -69,10 +69,10 @@
                                                   <td class="am-text-middle">{{ $c->sectname }}</td>
                                                 <td class="am-text-middle">
                                                     <div class="tpl-table-black-operation">
-                                                        <a href="/section_edit?id={{$c->id}}">
+                                                        <a href="section_edit?id={{$c->id}}">
                                                             <i class="am-icon-pencil"></i> 编辑
                                                         </a>
-                                                        <a href="/section_del?id={{$c->id}}" class="tpl-table-black-operation-del">
+                                                        <a href="section_del?id={{$c->id}}" class="tpl-table-black-operation-del">
                                                             <i class="am-icon-trash"></i> 删除
                                                         </a>
                                                     </div>

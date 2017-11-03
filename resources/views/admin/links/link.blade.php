@@ -19,7 +19,7 @@
                                     <div class="am-form-group">
                                         <div class="am-btn-toolbar">
                                             <div class="am-btn-group am-btn-group-xs">
-                                                <a href="link_add">
+                                                <a href="admin/link_add">
                                                     <button type="button" class="am-btn am-btn-default am-btn-success"><span class="am-icon-plus"></span> 新增</button>
                                                 </a>                                              
                                             </div>
@@ -79,10 +79,10 @@
                                                   <td class="am-text-middle">{{ $c->ontime }}—{{ $c->offtime }}</td>
                                                 <td class="am-text-middle">
                                                     <div class="tpl-table-black-operation">
-                                                        <a href="/link_edit?id={{$c->id}}">
+                                                        <a href="link_edit?id={{$c->id}}">
                                                             <i class="am-icon-pencil"></i> 编辑
                                                         </a>
-                                                        <a href="/link_del?id={{$c->id}}" class="tpl-table-black-operation-del">
+                                                        <a href="link_del?id={{$c->id}}" class="tpl-table-black-operation-del">
                                                             <i class="am-icon-trash"></i> 删除
                                                         </a>
                                                     </div>

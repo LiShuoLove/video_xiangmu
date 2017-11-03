@@ -42,9 +42,9 @@
 			$res = DB::table('data_video_message')->where('id', $del)->delete();
 			
 	        if($res > 0){
-	            return redirect('/message')->with('msg', '删除成功');
+	            return redirect('admin/message')->with('msg', '删除成功');
 	        }else{
-	            return redirect('/message')->with('msg', '删除失败');
+	            return redirect('admin/message')->with('msg', '删除失败');
 	        }
 		}
 
@@ -72,9 +72,9 @@
 			
 			$res = DB::table('data_video_message')->where('id', $id)->update($message);
 			if ($res > 0) {
-				return redirect('/message')->with('msg','修改成功');
+				return redirect('admin/message')->with('msg','修改成功');
 			}else{
-				return redirect('/message')->with('msg','修改失败');
+				return redirect('admin/message')->with('msg','修改失败');
 			}
 		}
 
@@ -93,14 +93,14 @@
             $res = $res->examine;
             $res = DB::table('data_video_message')->where('id', $id)->update(['examine'=>$res]);
     //       dd($res);
-            return redirect('/message');
+            return redirect('admin/message');
         } else {
             $res->examine = 1;
             //dd($res);
             $res = $res->examine;
             $res = DB::table('data_video_message')->where('id', $id)->update(['examine'=>$res]);
 //          dd($res);
-            return redirect('/message');
+            return redirect('admin/message');
         }
       
     }
@@ -117,7 +117,7 @@
 			
 			$id = DB::table('data_video_message')->insertGetid($message);
 			if($id > 0){
-			 return redirect('/message')->with('msg','添加成功');
+			 return redirect('admin/message')->with('msg','添加成功');
 			  
 			}
 		

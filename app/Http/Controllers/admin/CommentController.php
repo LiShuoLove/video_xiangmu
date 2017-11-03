@@ -139,9 +139,9 @@ class CommentController extends Controller
         $data = $request->except('_token', '_method','query_string');
         $res = DB::table('comment')->where('id', $id)->update($data);
         if($res > 0){
-            return redirect('/comment')->with('msg', '修改成功');
+            return redirect('admin/comment')->with('msg', '修改成功');
         }else{
-            return redirect('/comment')->with('msg', '修改失败(或未修改)');
+            return redirect('admin/comment')->with('msg', '修改失败(或未修改)');
         }
         // dd($res);
     }
@@ -159,9 +159,9 @@ class CommentController extends Controller
         $res =  DB::table('comment')->where('id', $id)->delete();
         // dd($res);
         if($res > 0){
-            return redirect('/comment')->with('msg', '删除成功');
+            return redirect('admin/comment')->with('msg', '删除成功');
         }else{
-            return redirect('/comment')->with('msg', '删除失败');
+            return redirect('admin/comment')->with('msg', '删除失败');
         }
     }
 }

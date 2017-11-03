@@ -15,7 +15,7 @@
                             </div>
                             <div class="widget-body am-fr">
 
-                                <form class="am-form tpl-form-border-form tpl-form-border-br" action="{{ url('/advertising_add') }}" method="post" enctype="multipart/form-data">
+                                <form class="am-form tpl-form-border-form tpl-form-border-br" action="{{ url('admin/advertising_add') }}" method="post" enctype="multipart/form-data">
                                     {{ csrf_field() }}
                                     
                                     <div class="am-form-group">

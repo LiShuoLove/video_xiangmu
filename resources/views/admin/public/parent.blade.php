@@ -203,7 +203,7 @@
               <i class="am-icon-circle-o am-text-success tpl-user-panel-status-icon"></i>
               超级管理员
           </span>
-                    <a href="{{url('/admins')}}" class="tpl-user-panel-action-link"> <span class="am-icon-pencil"></span> 后台首页</a>
+                    <a href="{{url('admin/admins')}}" class="tpl-user-panel-action-link"> <span class="am-icon-pencil"></span> 后台首页</a>
                 </div>
             </div>
 
@@ -218,7 +218,7 @@
                     </a>
                     <ul class="sidebar-nav sidebar-nav-sub">
                         <li class="sidebar-nav-link">
-                            <a href="{{ url('/user')}}">
+                            <a href="{{ url('admin/user')}}">
                                 <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 会员列表
                             </a>
                         </li>
@@ -233,13 +233,13 @@
                     </a>
                     <ul class="sidebar-nav sidebar-nav-sub">
                         <li class="sidebar-nav-link">
-                            <a href="{{ url('/lists') }}" class="sidebar-nav-sub-title">
+                            <a href="{{ url('admin/lists') }}" class="sidebar-nav-sub-title">
                                 <i class="am-icon-table sidebar-nav-link-logo"></i>视频列表
                                 
                             </a>
                         </li>
                         <li class="sidebar-nav-link">
-                            <a href="{{ url('/lists/create') }}" class="sidebar-nav-sub-title">
+                            <a href="{{ url('admin/lists/create') }}" class="sidebar-nav-sub-title">
                                 <i class="am-icon-table sidebar-nav-link-logo"></i>视频上传
                             </a>       
                         </li>
@@ -266,13 +266,13 @@
                       <ul class="sidebar-nav sidebar-nav-sub">
 
                         <li class="sidebar-nav-link">
-                            <a href="{{ url('/partition') }}">
+                            <a href="{{ url('admin/partition') }}">
                                 <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 分区列表
                             </a>
                         </li>
 
                         <li class="sidebar-nav-link">
-                            <a href="{{ url('/partition_add') }}">
+                            <a href="{{ url('admin/partition_add') }}">
                                 <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 添加分区
                             </a>
                         </li>
@@ -288,13 +288,13 @@
                       <ul class="sidebar-nav sidebar-nav-sub">
 
                         <li class="sidebar-nav-link">
-                            <a href="{{ url('/section') }}">
+                            <a href="{{ url('admin/section') }}">
                                 <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 版块列表
                             </a>
                         </li>
 
                         <li class="sidebar-nav-link">
-                            <a href="{{ url('/section_add') }}">
+                            <a href="{{ url('admin/section_add') }}">
                                 <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 添加版块
                             </a>
                         </li>
@@ -308,7 +308,7 @@
             </li>
                 
                 <li class="sidebar-nav-link">
-                    <a href="{{ url('/comment') }}">
+                    <a href="{{ url('admin/comment') }}">
                         <i class="am-icon-wpforms sidebar-nav-link-logo"></i> 评论管理
                     </a>
                 </li>
@@ -320,14 +320,14 @@
                     </a>
                     <ul class="sidebar-nav sidebar-nav-sub">
                          <li class="sidebar-nav-link">
-                            <a href="{{ url('/advertising') }}">
+                            <a href="{{ url('admin/advertising') }}">
                                 <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 广告列表
                             </a>
                         </li>
 
 
                         <li class="sidebar-nav-link">
-                            <a href="{{ url('/advertising_add') }}">
+                            <a href="{{ url('admin/advertising_add') }}">
                                 <span class="am-icon-angle-right sidebar-nav-link-logo"></span>添加广告
                             </a>
                         </li>
@@ -343,7 +343,7 @@
                     </a>
                     <ul class="sidebar-nav sidebar-nav-sub">
                         <li class="sidebar-nav-link">
-                            <a href="{{ url('/link') }}">
+                            <a href="{{ url('admin/link') }}">
                                 <span class="am-icon-angle-right sidebar-nav-link-logo"></span>链接列表
                             </a>
                         </li>
@@ -352,7 +352,7 @@
 
 
                         <li class="sidebar-nav-link">
-                            <a href="{{ url('/link_add') }} ">
+                            <a href="{{ url('admin/link_add') }} ">
                                 <span class="am-icon-angle-right sidebar-nav-link-logo"></span>添加链接
                             </a>
                         </li>
@@ -369,7 +369,7 @@
                     </a>
                     <ul class="sidebar-nav sidebar-nav-sub">
                         <li class="sidebar-nav-link">
-                            <a href="/message" class="sub-active">
+                            <a href="{{ url('admin/message')}}" class="sub-active">
                                 <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 留言列表
                             </a>
                         </li>

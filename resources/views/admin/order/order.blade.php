@@ -17,7 +17,7 @@
      <div class="panel-body"> 
       <div class="dataTable_wrapper"> 
        <div id="dataTables-example_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer">
-      <form action="{{url('/admin/seller')}}" method="get">
+      <form action="{{url('admin/admin/seller')}}" method="get">
         <div class="row">
          <div class="col-sm-6">
 
@@ -113,7 +113,7 @@
                     
                     if(confirm('你确定要删除吗？')){
                         var form = document.myform;
-                        form.action = 'order/'+id;
+                        form.action = 'admin/order/'+id;
                         form.submit();
                     }
                             

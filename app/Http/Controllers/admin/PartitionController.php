@@ -52,7 +52,7 @@
 
 			$id = DB::table('data_video_fq')->insertGetid($link);
 			if ($id > 0) {
-				return redirect('/partition')->with('msg','添加成功');
+				return redirect('admin/partition')->with('msg','添加成功');
 			}
 			
 		}
@@ -75,9 +75,9 @@
 			$res = DB::table('data_video_fq')->where('id', $id)->update($link);
 			// dd($res);
 			if ($res > 0) {
-				return redirect('/partition')->with('msg','修改成功');
+				return redirect('admin/partition')->with('msg','修改成功');
 			}else{
-				return redirect('/partition')->with('msg','修改失败');
+				return redirect('admin/partition')->with('msg','修改失败');
 			}
 		}
 
@@ -90,9 +90,9 @@
 			// dd($del);
 			$res = DB::table('data_video_fq')->where('id', $del)->delete();
 	        if($res > 0){
-	            return redirect('/partition')->with('msg', '删除成功');
+	            return redirect('admin/partition')->with('msg', '删除成功');
 	        }else{
-	            return redirect('/partition')->with('msg', '删除失败');
+	            return redirect('admin/partition')->with('msg', '删除失败');
 	        }
 		}
 	}

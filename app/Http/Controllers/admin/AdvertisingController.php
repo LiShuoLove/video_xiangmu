@@ -73,7 +73,7 @@
 	       	// dd($advertising);
 			$id = DB::table('data_video_AD')->insertGetid($advertising);
 			if ($id > 0) {
-				return redirect('/advertising')->with('msg','添加成功');
+				return redirect('admin/advertising')->with('msg','添加成功');
 			}
 			
 		}
@@ -135,9 +135,9 @@
 			// dd($del);
 			$res = DB::table('data_video_AD')->where('id', $del)->delete();
 	        if($res > 0){
-	            return redirect('/advertising')->with('msg', '删除成功');
+	            return redirect('admin/advertising')->with('msg', '删除成功');
 	        }else{
-	            return redirect('/advertising')->with('msg', '删除失败');
+	            return redirect('admin/advertising')->with('msg', '删除失败');
 	        }
 		}
 

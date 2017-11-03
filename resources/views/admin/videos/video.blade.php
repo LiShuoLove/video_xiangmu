@@ -24,7 +24,7 @@
                             </div>
                             <div class="widget-body am-fr">
 
-                                <form id="art_form" class="am-form tpl-form-line-form" action="{{ url('/lists') }}" method='post' enctype="multipart/form-data"">
+                                <form id="art_form" class="am-form tpl-form-line-form" action="{{ url('admin/lists') }}" method='post' enctype="multipart/form-data"">
                                 	{{ csrf_field() }}
                                 	<div class="am-form-group">
                                         <label for="user-phone"  class="am-u-sm-3 am-form-label">视频状态 </label>
@@ -78,13 +78,9 @@
                                         <div class="am-u-sm-9">
                                              <div class="result_wrap">
                                                 <div class="am-form-group am-form-file">
-                                                    <div class="tpl-form-file-img">
-                                                        <input type="text"  name="video_original" id="video_original" style="width:25%">
-                                                        <img id="img1" alt="上传后显示图片" style="max-width:350px;max-height:200px;">
-                                                    </div>
-                                                        <input  id="file_upload" name="file_upload" type="file" multiple="true" >
-                                                        <button type="button" class="am-btn am-btn-danger am-btn-sm">
-                                                        <i class="am-icon-cloud-upload"></i>添加封面图片</button>
+                                                    <input type="text" size="50" name="art_thumb" id="art_thumb">
+                                                    <input id="file_upload" name="file_upload" type="file" multiple="true">
+                                                    <p><img id="img1" alt="上传后显示图片"  style="max-width:350px;max-height:100px;" /></p>
                                                 </div>
 										    </div>
 
@@ -160,7 +156,7 @@
         var formData = new FormData($('#art_form')[0]);
         $.ajax({
             type: "POST",
-            url: "/uploads",
+            url: "uploads",
             data: formData,
             contentType: false,
             processData: false,
@@ -181,32 +177,41 @@
 </style>
 
 <script type="text/javascript">
-    $(function(){
-        $('#upload').Huploadify({
-            auto:true,
-            fileTypeExts:'*.wmv;*.mp4;*.jpg;*.png;*.exe',
-            multi:true,
-            formData:{key:123456,key2:'vvvv'},
-            fileSizeLimit:9999999999999,
-            showUploadedPercent:true,//是否实时显示上传的百分比，如20%
-            showUploadedSize:true,
-            removeTimeout:9999999,
-            uploader:'{{url('uploadsss')}}',
-            onUploadStart:function(){
-                //alert('开始上传');
-                },
-            onInit:function(){
-                //alert('初始化');
-                },
-            onUploadComplete:function(){
-                alert('上传完成');
-                },
-            onDelete:function(file){
-                console.log('删除的文件：'+file);
-                console.log(file);
+    $(function () {
+        $("#file_upload").change(function () {
+            uploadImage();
+        })
+    })
+    function uploadImage() {
+    //  判断是否有选择上传文件
+        var imgPath = $("#file_upload").val();
+        if (imgPath == "") {
+            alert("请选择上传图片！");
+            return;
+        }
+        //判断上传文件的后缀名
+        var strExtension = imgPath.substr(imgPath.lastIndexOf('.') + 1);
+        if (strExtension != 'jpg' && strExtension != 'gif'
+            && strExtension != 'png' && strExtension != 'bmp') {
+            alert("请选择图片文件");
+            return;
+        }
+        var formData = new FormData($('#art_form')[0]);
+        $.ajax({
+            type: "POST",
+            url: "/admin/upload",
+            data: formData,
+            contentType: false,
+            processData: false,
+            success: function(data) {
+                $('#img1').attr('src','/'+data);
+                $('#art_thumb').val(data);
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown) {
+                alert("上传失败，请检查网络后重试");
             }
-            });
         });
+    }
 </script>
 
 
