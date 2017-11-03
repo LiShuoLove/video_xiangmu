@@ -2,14 +2,13 @@
 
 @section('content')
 <!-- 菜单 -->
-                            
-                    
+                     
             <div class="row-content am-cf">
                 <div class="row">
                     <div class="am-u-sm-12 am-u-md-12 am-u-lg-12">
                         <div class="widget am-cf">
                             <div class="widget-head am-cf">
-                                <div class="widget-title  am-cf">链接列表</div>
+                                <div class="widget-title  am-cf">广告列表</div>
 
 
                             </div>
@@ -19,7 +18,7 @@
                                     <div class="am-form-group">
                                         <div class="am-btn-toolbar">
                                             <div class="am-btn-group am-btn-group-xs">
-                                                <a href="link_add">
+                                                <a href="advertising_add">
                                                     <button type="button" class="am-btn am-btn-default am-btn-success"><span class="am-icon-plus"></span> 新增</button>
                                                 </a>                                              
                                             </div>
@@ -40,22 +39,26 @@
 
                                 <div class="am-u-sm-12">
                                     <table width="100%" class="am-table am-table-compact am-table-striped tpl-table-black ">
-                                    
+                                        <form name='myform' action="" method='post' style='display:none'>
+                                            {{ csrf_field() }}
+                                            {{ method_field('DELETE') }}
+                   
+                                        </form>
                                         <thead>
+                                            
                                             <tr>
                                                 <th>id</th>
                                                 <th>uid</th>
                                                 <th>用户名</th>
-                                                <th>链接标题</th>
-                                                <th>链接内容</th>
-                                                <th>链接地址</th>
+                                                <th>广告标题</th>
+                                                <th>广告略缩图</th>
+                                                <th>广告地址</th>
                                                 <th>状态</th>
-                                                <th>链接期限</th>
+                                                <th>广告期限</th>
                                                 <th>操作</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-
                                         @if (session('msg'))
                                              <script>
                                                  alert("{{ session('msg') }}");
@@ -63,32 +66,36 @@
                                            </script>
                                          @endif
                                          
-                                        @foreach($list as $c)
+                                            @foreach($list as $v)
                                             <tr class="gradeX">
                                                 <td class="am-text-middle">
-                                                    {{ $c->id }}
+                                                    {{ $v->id }}
                                                 </td>
-                                                <td class="am-text-middle">{{ $c->uid }}</td>
                                                 <td class="am-text-middle">
-                                                    {{ $c->username }}
+                                                    {{ $v->uid }}
                                                 </td>
-                                                <td class="am-text-middle">{{ $c->title }}</td>
-                                                 <td class="am-text-middle">{{ $c->content }}</td>
-                                                 <td class="am-text-middle">{{ $c->address }}</td>
-                                                 <td class="am-text-middle">{{ $c->state }}</td>
-                                                  <td class="am-text-middle">{{ $c->ontime }}—{{ $c->offtime }}</td>
+                                                <td class="am-text-middle">
+                                                    {{ $v->username }}
+                                                </td>
+                                                <td class="am-text-middle">{{ $v->title }}</td>
+                                                <td class="am-text-middle">
+                                                    <img src="{{ asset('upload/'.$v->picture) }}" class="tpl-table-line-img" alt="">
+                                                </td>
+                                                <td class="am-text-middle">{{ $v->address}}</td>
+                                                 <td class="am-text-middle">{{ $v->state}}</td>
+                                                  <td class="am-text-middle">{{ $v->ontime }}—{{ $v->offtime }}</td>
                                                 <td class="am-text-middle">
                                                     <div class="tpl-table-black-operation">
-                                                        <a href="/link_edit?id={{$c->id}}">
+                                                        <a href="/advertising_edit?id={{$v->id}}">
                                                             <i class="am-icon-pencil"></i> 编辑
                                                         </a>
-                                                        <a href="/link_del?id={{$c->id}}" class="tpl-table-black-operation-del">
+                                                        <a href="/advertising_del?id={{$v->id}}" class="tpl-table-black-operation-del">
                                                             <i class="am-icon-trash"></i> 删除
                                                         </a>
                                                     </div>
                                                 </td>
                                             </tr>
-                                        @endforeach
+                                            @endforeach
                                            <!-- more data -->
                                         </tbody>
                                     </table>
@@ -111,5 +118,5 @@
                         </div>
                     </div>
                 </div>
-       
+            
 @endsection

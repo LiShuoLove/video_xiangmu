@@ -40,9 +40,7 @@
                <div class="right-box">
                   <a href="{{ url('/register') }}"><button type="button" class="access-btn">注册</button></a>
                </div>
-               <div class="right-box">
-                  <button type="button" class="access-btn">个人中心</button>
-               </div>
+               
             </div>
          </div>
          <!-- MENU -->

@@ -43,7 +43,7 @@ class LoginController extends Controller
              
              return redirect('/home')->with('msg','登陆成功');
         }else{
-            return redirect('/login')->with('msg','登陆失败');
+            return redirect('/login')->with('msg','登陆失败，请核对用户名或密码后登陆');
             }
         }
 

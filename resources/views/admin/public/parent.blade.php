@@ -253,17 +253,59 @@
 
 
                 <li class="sidebar-nav-link">
-                    <a href="calendar.html">
-                        <i class="am-icon-table sidebar-nav-link-logo"></i> 栏目管理
+                    <a href="javascript:;" class="sidebar-nav-sub-title">
+                        <i class="am-icon-table sidebar-nav-link-logo"></i>栏目管理
+                        <span class="am-icon-chevron-down am-fr am-margin-right-sm sidebar-nav-sub-ico"></span>
                     </a>
-                </li>
+                    <ul class="sidebar-nav sidebar-nav-sub">
+                        <li class="sidebar-nav-link">
+                            <a href="javascript:;" class="sidebar-nav-sub-title">
+                                <i class="am-icon-table sidebar-nav-link-logo"></i>分区管理
+                                <span class="am-icon-chevron-down am-fr am-margin-right-sm sidebar-nav-sub-ico"></span>
+                            </a>
+                      <ul class="sidebar-nav sidebar-nav-sub">
 
+                        <li class="sidebar-nav-link">
+                            <a href="{{ url('/partition') }}">
+                                <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 分区列表
+                            </a>
+                        </li>
 
+                        <li class="sidebar-nav-link">
+                            <a href="{{ url('/partition_add') }}">
+                                <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 添加分区
+                            </a>
+                        </li>
+                      </ul>
+  
+                        </li>
+                       
                 <li class="sidebar-nav-link">
-                    <a href="{{url('/order')}}">
-                        <i class="am-icon-table sidebar-nav-link-logo"></i> 订单管理
-                    </a>
-                </li>
+                            <a href="javascript:;" class="sidebar-nav-sub-title">
+                                <i class="am-icon-table sidebar-nav-link-logo"></i>版块管理
+                                <span class="am-icon-chevron-down am-fr am-margin-right-sm sidebar-nav-sub-ico"></span>
+                            </a>
+                      <ul class="sidebar-nav sidebar-nav-sub">
+
+                        <li class="sidebar-nav-link">
+                            <a href="{{ url('/section') }}">
+                                <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 版块列表
+                            </a>
+                        </li>
+
+                        <li class="sidebar-nav-link">
+                            <a href="{{ url('/section_add') }}">
+                                <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 添加版块
+                            </a>
+                        </li>
+                        </ul>
+
+
+                                
+                        </li>
+                    
+                </ul>
+            </li>
                 
                 <li class="sidebar-nav-link">
                     <a href="{{ url('/comment') }}">
@@ -310,7 +352,7 @@
 
 
                         <li class="sidebar-nav-link">
-                            <a href="{{url('/link_add')}} ">
+                            <a href="{{ url('/link_add') }} ">
                                 <span class="am-icon-angle-right sidebar-nav-link-logo"></span>添加链接
                             </a>
                         </li>
@@ -319,8 +361,6 @@
 
                     </ul>
                 </li>
-            </ul>
-
                
                         <li class="sidebar-nav-link">
                     <a href="javascript:;" class="sidebar-nav-sub-title">

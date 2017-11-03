@@ -12,14 +12,14 @@
                     <div class="am-u-sm-12 am-u-md-12 am-u-lg-12">
                         <div class="widget am-cf">
                             <div class="widget-head am-cf">
-                                <div class="widget-title am-fl">留言审核</div>
+                                <div class="widget-title am-fl">个人留言修改</div>
                                 <div class="widget-function am-fr">
                                     <a href="javascript:;" class="am-icon-cog"></a>
                                 </div>
                             </div>
                             <div class="widget-body am-fr">
-0
-                                <form class="am-form tpl-form-border-form tpl-form-border-br" action="{{ url('/message_examine') }}" method='post'>
+
+                                <form class="am-form tpl-form-border-form tpl-form-border-br" action="{{ url('/message_edit') }}" method='post'>
                                       {{ csrf_field() }}
                                       @foreach($list as $v)
                                 
@@ -104,25 +104,12 @@
                                             <input type="text" name="type" id="user-weibo" value="{{ $v->type }}">
                                         </div>
                                     </div>
-
-
-
-
-                                    <!-- <div class="am-form-group">
-                                        <label for="user-weibo" class="am-u-sm-3 am-form-label">审核 <span class="tpl-form-line-small-title">examine</span></label>
-                                        <div class="am-u-sm-9">
-                                            <input type="text" name="type" id="user-weibo" value="{{ $v->examine }}">
-                                        </div> -->
-                                    </div>
                                       @endforeach
 
                                     <div class="am-form-group">
                                         <div class="am-u-sm-9 am-u-sm-push-3">
-                                            <input type="submit" class="am-btn am-btn-primary tpl-btn-bg-color-success " value="审核通过">
-                                            <input type="submit" class="am-btn am-btn-primary tpl-btn-bg-color-success " value="审核未通过">
-                                          
-                                    </div>
-
+                                            <input type="submit" class="am-btn am-btn-primary tpl-btn-bg-color-success " value="提交">
+                                        </div>
                                     </div>
                                 </form>
                             </div>

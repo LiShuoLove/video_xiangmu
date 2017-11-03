@@ -60,7 +60,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 	<div class="col-md-8 h_menu4">
 				<ul class="memenu skyblue">
-					  <li class=" grid"><a  href="index.html">首页</a></li>	
+					  <li class=" grid"><a  href="{{url('/home')}}">首页</a></li>	
 				      
 				    
 				
@@ -125,7 +125,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			
 			</div>
 			<div class="clearfix"> </div></td>
-			<td class="check"><input type="text" value="1" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='';}"></td>		
+			<td class="check"><input type="text" value="0" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='';}"></td>		
 			<td>10.00元</td>
 			
 		  </tr>
@@ -136,7 +136,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				
 			</div>
 			<div class="clearfix"> </div></td>
-			<td class="check"><input type="text" value="1" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='';}"></td>		
+			<td class="check"><input type="text" value="0" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='';}"></td>		
 			<td>20.00元</td>
 			
 		  </tr>
@@ -147,7 +147,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				
 			</div>
 			<div class="clearfix"> </div></td>
-			<td class="check"><input type="text" value="1" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='';}"></td>		
+			<td class="check"><input type="text" value="0" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='';}"></td>		
 			<td>70.00元</td>
 			
 		  </tr>

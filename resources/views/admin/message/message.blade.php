@@ -19,9 +19,9 @@
                                                 <button type="button" class="am-btn am-btn-default am-btn-success"><span class="am-icon-plus"></span> 新增</button>
                                                 </a>
                                                 <!-- <button type="button" class="am-btn am-btn-default am-btn-secondary"><span class="am-icon-save"></span> 保存</button> -->
-                                                <a href="examine">
+                                                <!-- <a href="examine">
                                                 <button type="button" class="am-btn am-btn-default am-btn-warning"><span class="am-icon-archive"></span> 审核</button>
-                                                </a>
+                                                </a> -->
                                                 <!-- <button type="button" class="am-btn am-btn-default am-btn-danger"><span class="am-icon-trash-o"></span> 删除</button> -->
                                             </div>
                                         </div>
@@ -48,12 +48,7 @@
           </span>
                                     </div>
                                 </div>
-                                         @if (session('msg'))
-                                             <script>
-                                                 alert("{{ session('msg') }}");
-
-                                           </script>
-                                         @endif
+                                         
                                 <div class="am-u-sm-12">
                                     <table width="100%" class="am-table am-table-compact am-table-striped tpl-table-black " id="example-r">
                                         <thead>
@@ -68,6 +63,13 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                        @if (session('msg'))
+                                             <script>
+                                                 alert("{{ session('msg') }}");
+
+                                           </script>
+                                         @endif
+
                                             @foreach($list as $v)
                                             <tr class="gradeX">
                                                 <td>{{ $v->id }}</td>
@@ -78,11 +80,14 @@
                                                 <td>{{ $v->type }}</td>
                                                 <td>
                                                 <div class="tpl-table-black-operation">
-                                                        <a href="javascript:;">
+                                                        <a href="/message_edit?id={{$v->id}}">
                                                             <i class="am-icon-pencil"></i> 编辑
                                                         </a>
-                                                        <a href="javascript:;" class="tpl-table-black-operation-del">
+                                                        <a href="/message_del?id={{$v->id}}" class="tpl-table-black-operation-del">
                                                             <i class="am-icon-trash"></i> 删除
+                                                        </a>
+                                                        <a href="/message_examine?id={{$v->id}}">
+                                                            <i class="am-icon-circle"></i> 审核
                                                         </a>
                                                     </div>
                                                 </td>

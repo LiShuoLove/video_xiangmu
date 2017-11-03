@@ -9,7 +9,7 @@
                     <div class="am-u-sm-12 am-u-md-12 am-u-lg-12">
                         <div class="widget am-cf">
                             <div class="widget-head am-cf">
-                                <div class="widget-title  am-cf">链接列表</div>
+                                <div class="widget-title  am-cf">版块列表</div>
 
 
                             </div>
@@ -19,7 +19,7 @@
                                     <div class="am-form-group">
                                         <div class="am-btn-toolbar">
                                             <div class="am-btn-group am-btn-group-xs">
-                                                <a href="link_add">
+                                                <a href="section_add">
                                                     <button type="button" class="am-btn am-btn-default am-btn-success"><span class="am-icon-plus"></span> 新增</button>
                                                 </a>                                              
                                             </div>
@@ -44,13 +44,8 @@
                                         <thead>
                                             <tr>
                                                 <th>id</th>
-                                                <th>uid</th>
-                                                <th>用户名</th>
-                                                <th>链接标题</th>
-                                                <th>链接内容</th>
-                                                <th>链接地址</th>
-                                                <th>状态</th>
-                                                <th>链接期限</th>
+                                                <th>分区名</th>
+                                                <th>版块名</th>
                                                 <th>操作</th>
                                             </tr>
                                         </thead>
@@ -68,21 +63,16 @@
                                                 <td class="am-text-middle">
                                                     {{ $c->id }}
                                                 </td>
-                                                <td class="am-text-middle">{{ $c->uid }}</td>
                                                 <td class="am-text-middle">
-                                                    {{ $c->username }}
+                                                    {{ $c->partname }}
                                                 </td>
-                                                <td class="am-text-middle">{{ $c->title }}</td>
-                                                 <td class="am-text-middle">{{ $c->content }}</td>
-                                                 <td class="am-text-middle">{{ $c->address }}</td>
-                                                 <td class="am-text-middle">{{ $c->state }}</td>
-                                                  <td class="am-text-middle">{{ $c->ontime }}—{{ $c->offtime }}</td>
+                                                  <td class="am-text-middle">{{ $c->sectname }}</td>
                                                 <td class="am-text-middle">
                                                     <div class="tpl-table-black-operation">
-                                                        <a href="/link_edit?id={{$c->id}}">
+                                                        <a href="/section_edit?id={{$c->id}}">
                                                             <i class="am-icon-pencil"></i> 编辑
                                                         </a>
-                                                        <a href="/link_del?id={{$c->id}}" class="tpl-table-black-operation-del">
+                                                        <a href="/section_del?id={{$c->id}}" class="tpl-table-black-operation-del">
                                                             <i class="am-icon-trash"></i> 删除
                                                         </a>
                                                     </div>

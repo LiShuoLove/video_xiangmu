@@ -10,13 +10,13 @@
 
 	use DB;
 
-	class LinkController extends Controller
+	class PartitionController extends Controller
 	{
-		//链接列表
+		//分区列表
 		public function index(Request $request)
 		{
 			$where = [];
-	        $ob = DB::table('data_video_Connect');
+	        $ob = DB::table('data_video_fq');
 	        // dd($ob)->all();
 	        // 判断是否搜索了name字段
 	        // if($request->has('name')){
@@ -33,14 +33,14 @@
 	        // 查询构造器（优雅）
 	        $list = $ob->paginate(10);
 	        // dd($list)->all();
-			return view ('admin.links.link', ['list'=>$list]);
+			return view ('admin.partition.partition', ['list'=>$list]);
 			
 		}
 
-		//链接添加
+		//分区添加
 		public function inadd()
 		{
-			return view ('admin.links.add');
+			return view ('admin.partition.add');
 		}
 		//添加操作
 		public function create(Request $request)
@@ -50,20 +50,20 @@
 			// dd($link);
 			
 
-			$id = DB::table('data_video_Connect')->insertGetid($link);
+			$id = DB::table('data_video_fq')->insertGetid($link);
 			if ($id > 0) {
-				return redirect('/link')->with('msg','添加成功');
+				return redirect('/partition')->with('msg','添加成功');
 			}
 			
 		}
 
-		//链接修改
+		//分区修改
 		public function inedit(Request $request)
 		{
 			$edit = $request->only('id');
-			$res = DB::table('data_video_Connect')->where('id', $edit);
+			$res = DB::table('data_video_fq')->where('id', $edit);
 			$list = $res->paginate(1);
-			return view ('admin.links.edit', ['list'=>$list]);
+			return view ('admin.partition.edit', ['list'=>$list]);
 		}
 
 		//修改操作
@@ -71,28 +71,28 @@
 		{
 			$link = $request->except('_token');
 			$id = $request->only('id');
-			// dd($id);
-			$res = DB::table('data_video_Connect')->where('id', $id)->update($link);
+			// dd($link);
+			$res = DB::table('data_video_fq')->where('id', $id)->update($link);
 			// dd($res);
 			if ($res > 0) {
-				return redirect('/link')->with('msg','添加成功');
+				return redirect('/partition')->with('msg','修改成功');
 			}else{
-				return redirect('/link')->with('msg','添加失败');
+				return redirect('/partition')->with('msg','修改失败');
 			}
 		}
 
-		//链接删除
+		//分区删除
 		public function del(Request $request)
 		{
 			// dd($request->all());
 			$del = $request->only('id');
 			// $del = $request->all();
 			// dd($del);
-			$res = DB::table('data_video_Connect')->where('id', $del)->delete();
+			$res = DB::table('data_video_fq')->where('id', $del)->delete();
 	        if($res > 0){
-	            return redirect('/link')->with('msg', '删除成功');
+	            return redirect('/partition')->with('msg', '删除成功');
 	        }else{
-	            return redirect('/link')->with('msg', '删除失败');
+	            return redirect('/partition')->with('msg', '删除失败');
 	        }
 		}
 	}

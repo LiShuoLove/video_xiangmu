@@ -33,9 +33,7 @@
       <img src = "{{ asset ('homes/img/banners/banner-sm.jpg')}}" class="img-responsive" alt="Muvee Reviews Video Magazine HTML5 Bootstrap">
    </div>
    <div class="col-lg-3 col-md-6 col-sm-7 hidden-xs">
-      <div class="right-box">
-        <button type="button" class="access-btn" data-toggle="modal" data-target="#enquirypopup">欢迎登录</button>
-      </div>
+     
    </div>
  </div>
  <!-- MENU -->

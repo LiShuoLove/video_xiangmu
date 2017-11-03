@@ -64,6 +64,16 @@
                                         </div>
                                     </div>
 
+                                   <!--  <div class="am-form-group">
+                                        <label for="user-phone" class="am-u-sm-3 am-form-label">状态 <span class="tpl-form-line-small-title">state</span></label>
+                                        <div class="am-u-sm-9">
+                                            <select data-am-selected="{searchBox: 1}" name="state" style="display: none;">
+                                                <option value="0">0</option>
+                                                <option value="1" selected>1</option>
+                                            </select>
+                                        </div>
+                                    </div>  -->
+
                                         <div class="am-form-group">
                                         <label for="user-name" class="am-u-sm-3 am-form-label">摘要 <span class="tpl-form-line-small-title">Title</span></label>
                                         <div class="am-u-sm-9">
@@ -78,6 +88,10 @@
                                             <input type="text" name="type" id="user-weibo" placeholder="请添加分类用点号隔开">
                                         </div>
                                     </div>
+
+
+
+                                    <!-- <input type="hidden" name="examine" value="0"> -->
 
 
                                     <div class="am-form-group">
