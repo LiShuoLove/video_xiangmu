@@ -75,7 +75,7 @@
                                                 <td class="am-text-middle">{{ $v->video_info_name }}</td>
                                                 
                                                 <td>
-                                                    <img src="{{asset('./'.$v->video_original)}}" style="width:60px;" class="tpl-table-line-img" alt="">
+                                                    <img src="{{asset('./public'.$v->video_original)}}" style="width:60px;" class="tpl-table-line-img" alt="">
                                                 </td>
                                                 <td>
                                                     <img src="{{url('')}}" class="tpl-table-line-img" alt="">

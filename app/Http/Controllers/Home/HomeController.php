@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\home;
 
 use Illuminate\Http\Request;
-
+use DB;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -17,7 +17,9 @@ class HomeController extends Controller
     public function index()
     {
         //
-        return view ('home.index.index');
+        $ad = DB::table('data_video_AD')->get();
+        
+        return view('home.index.index',['ad' => $ad]);
     }
 
     /**

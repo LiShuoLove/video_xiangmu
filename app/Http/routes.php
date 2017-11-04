@@ -32,6 +32,19 @@ Route::post('/register', 'home\LoginController@doregister');
 
 //前台购物车
 Route::get('/orders','home\OrderController@index');
+
+	//购物车
+    Route::get('/shop','home\CartController@cart');
+    //加入购物车
+    Route::get('/cart','home\CartController@doshop');
+    //购物车减
+    Route::get('/acc','home\CartController@doAcc');
+    //购物车加
+    Route::get('/add','home\CartController@doAdd');
+
+
+
+    
 //后台未登录
 Route::get('admin/logins','admin\AdminController@login');
 Route::post('admin/logins','admin\AdminController@dologin');

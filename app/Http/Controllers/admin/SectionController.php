@@ -55,7 +55,7 @@
 
 			$id = DB::table('data_video_bk')->insertGetid($link);
 			if ($id > 0) {
-				return redirect('admin/section')->with('msg','添加成功');
+				return redirect('/admin/section')->with('msg','添加成功');
 			}
 			
 		}
@@ -63,10 +63,16 @@
 		//版块修改
 		public function inedit(Request $request)
 		{
+			//获取分区
+			$ob = DB::table('data_video_fq');
+			// dd($ob);
+			$date = $ob->paginate(99);
+			//获取版块
 			$edit = $request->only('id');
-			$res = DB::table('data_video_fq')->where('id', $edit);
+			$res = DB::table('data_video_bk')->where('id', $edit);
 			$list = $res->paginate(1);
-			return view ('admin.partition.edit', ['list'=>$list]);
+			// dd($list);
+			return view ('admin.section.edit', ['list'=>$list, 'date'=>$date]);
 		}
 
 		//修改操作
@@ -75,12 +81,12 @@
 			$link = $request->except('_token');
 			$id = $request->only('id');
 			// dd($link);
-			$res = DB::table('data_video_fq')->where('id', $id)->update($link);
+			$res = DB::table('data_video_bk')->where('id', $id)->update($link);
 			// dd($res);
 			if ($res > 0) {
-				return redirect('admin/partition')->with('msg','修改成功');
+				return redirect('/admin/section')->with('msg','修改成功');
 			}else{
-				return redirect('admin/partition')->with('msg','修改失败');
+				return redirect('/admin/section')->with('msg','修改失败');
 			}
 		}
 
@@ -91,11 +97,11 @@
 			$del = $request->only('id');
 			// $del = $request->all();
 			// dd($del);
-			$res = DB::table('data_video_fq')->where('id', $del)->delete();
+			$res = DB::table('data_video_bk')->where('id', $del)->delete();
 	        if($res > 0){
-	            return redirect('admin/partition')->with('msg', '删除成功');
+	            return redirect('/admin/section')->with('msg', '删除成功');
 	        }else{
-	            return redirect('admin/partition')->with('msg', '删除失败');
+	            return redirect('/admin/section')->with('msg', '删除失败');
 	        }
 		}
 	}

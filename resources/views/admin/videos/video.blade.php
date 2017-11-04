@@ -78,7 +78,7 @@
                                         <div class="am-u-sm-9">
                                              <div class="result_wrap">
                                                 <div class="am-form-group am-form-file">
-                                                    <input type="text" size="50" name="art_thumb" id="art_thumb">
+                                                    <input type="text" size="50" name="video_original" id="video_original">
                                                     <input id="file_upload" name="file_upload" type="file" multiple="true">
                                                     <p><img id="img1" alt="上传后显示图片"  style="max-width:350px;max-height:100px;" /></p>
                                                 </div>
@@ -156,7 +156,7 @@
         var formData = new FormData($('#art_form')[0]);
         $.ajax({
             type: "POST",
-            url: "uploads",
+            url: "/admin/upload",
             data: formData,
             contentType: false,
             processData: false,

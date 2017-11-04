@@ -57,7 +57,7 @@
                   <li><a href="{{ url('/login') }}">登录</a></li>
                   <li><a href="gallery-video-boxed.html">视频简介</a></li>
                   <li><a href="contact.html">联系我们</a></li>
-                  <li><a href="{{url('/orders')}}">会员购买</a></li>
+                  <li><a href="http://www.iqiyi.com/">会员购买</a></li>
                      </ul>
           <ul class="social">
             <li class="social-facebook"><a href="#" class="fa fa-facebook social-icons"></a></li>
@@ -159,9 +159,11 @@
                </form>
             </div>
             <!-- SIDEBAR ADVERTISE BOX -->
+            @foreach($ad as $v)
             <a href="" class="banner-l hidden-sm hidden-xs">
-            <img src = "{{ asset ('homes/img/banners/banner-l.jpg')}}" class="img-responsive" alt="Buy Now Muvee Reviews Bootstrap HTML5 Template" title="Buy Now Muvee Reviews Bootstrap HTML5 Template">
+            <img src = "{{ asset('/upload/'. $v->picture) }}" class="img-responsive" >
             </a>
+            @endforeach
           </div>
         </div>
       </section>

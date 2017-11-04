@@ -26,7 +26,13 @@ class CommentController extends Controller
         // $comment->get();
         // $comment->where()->paginate();
 
-        $comment = DB::table('comment');
+        $comment = DB::table('comment')
+                    ->join('data_category','category_id','=','data_category.id')
+                    ->select('comment.*','data_category.*','comment.id');
+                    
+                    
+                 
+                    // dd($comment);
         // dd($comment->first());
                
         // 判断是否搜索了name字段
@@ -88,7 +94,7 @@ class CommentController extends Controller
         //如果有id说明添加成功
         if($id > 0){
             //跳转到/comment,添加闪存
-            return redirect('/comment')->with('msg','添加成功');
+            return redirect('admin/comment')->with('msg','添加成功');
         }
         //dd($res);
     }

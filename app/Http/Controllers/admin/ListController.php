@@ -87,7 +87,7 @@ class ListController extends Controller
         //去除token
         $data = $request->except('_token','query_string');
         //执行添加并得到id
-        // dd($data);
+        dd($data);
         $id = DB::table('data_video_info')->insertGetId($data);
         //如果有id说明添加成功
         if($id > 0){
@@ -179,7 +179,7 @@ class ListController extends Controller
             $entension = $file->getClientOriginalExtension();//上传文件的后缀名
             $newName = date('YmdHis').mt_rand(1000,9999).'.'.$entension;
             $path = $file->move(public_path().'/upload',$newName);
-            $filepath = 'upload/'.$newName;
+            $filepath = '/upload'.$newName;
             //返回文件的路径
             return  $filepath;
         }

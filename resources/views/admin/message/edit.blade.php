@@ -28,7 +28,8 @@
                                         <div class="am-form-group">
                                             <label for="user-name" class="am-u-sm-3 am-form-label">id <span class="tpl-form-line-small-title">id</span></label>
                                             <div class="am-u-sm-9">
-                                                <input type="text" class="tpl-form-input" name="id" value="{{ $v->id }}" disabled>
+                                                <input type="text" class="tpl-form-input" name="fid" value="{{ $v->id }}" disabled>
+                                                <input type="hidden" class="tpl-form-input" name="id" value="{{ $v->id }}" >
                                             </div>
                                         </div>
                                     </div>
