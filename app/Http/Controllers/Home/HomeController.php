@@ -18,7 +18,7 @@ class HomeController extends Controller
     {
         //
         $ad = DB::table('data_video_AD')->get();
-        
+            
         return view('home.index.index',['ad' => $ad]);
     }
 

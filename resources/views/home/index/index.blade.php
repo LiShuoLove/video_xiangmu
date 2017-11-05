@@ -111,7 +111,12 @@
    <!-- HOME MAIN POSTS -->   
    <div class="col-lg-10 col-md-8">
       <section id="home-main">
-        <h2 class="icon"><i class="fa fa-television" aria-hidden="true"></i>比较激情的电影</h2>
+    
+        <h2 class="icon">
+        <i class="fa fa-television" aria-hidden="true">
+        </i>
+        比较激情的电影
+        </h2>
         <div class="row">
           <!-- ARTICLES -->
           <div class="col-lg-9 col-md-12 col-sm-12">
