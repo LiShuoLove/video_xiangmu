@@ -19,7 +19,7 @@
                             </div>
                             <div class="widget-body am-fr">
 
-                                <form class="am-form tpl-form-border-form tpl-form-border-br" action="{{ url('admin/message_add') }}" method='post'>
+                                <form class="am-form tpl-form-border-form tpl-form-border-br" action="{{ url('/message_add') }}" method='post'>
                                       {{ csrf_field() }}
 
                                     <div class="am-form-group">

@@ -75,10 +75,10 @@
                                                 <td class="am-text-middle">{{ $v->video_info_name }}</td>
                                                 
                                                 <td>
-                                                    <img src="{{asset('./public'.$v->video_original)}}" style="width:60px;" class="tpl-table-line-img" alt="">
+                                                    <img src="<?php echo '/'.$v->video_original;  ?>" style="width:60px;" class="tpl-table-line-img" alt="">
                                                 </td>
                                                 <td>
-                                                    <img src="{{url('')}}" class="tpl-table-line-img" alt="">
+                                                    <video src="<?php echo '/'.$v->video_movie;  ?>" class="tpl-table-line-img" alt="">
                                                 </td>
                                                 <td class="am-text-middle">{{ $v->video_info_starring }}</td>
                                                 <td style="height:50px;  overflow:hidden;width:100px; " class="am-text-middle" >{{ $v->video_info_plot }}</td>

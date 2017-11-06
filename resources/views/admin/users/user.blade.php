@@ -34,12 +34,12 @@
                                             </select>
                                     </div>
                                 </div>
-                                <form action="{{ url('admin/users') }}">
+                                <form action="{{ url('users') }}">
                                 <div class="am-u-sm-12 am-u-md-12 am-u-lg-3">
                                     <div class="am-input-group am-input-group-sm tpl-form-border-form cl-p">
                                          <input type="text" class="am-form-field " name="username">
                                         <span class="am-input-group-btn">
-                                     <input type="submit" ；class='am-btn am-btn-primary tpl-btn-bg-color-success ' value='搜索'>
+                                     <input type="submit" class='am-btn am-btn-primary tpl-btn-bg-color-success ' value='搜索'>
                                   </span>
                                     </div>
                                 </div>
@@ -50,23 +50,19 @@
 
                                     </script>
                                 @endif
-                        <form name='myform' action="" method='post' style='display:none'>
+                             <form name='myform' action="" method='post' style='display:none'>
                                             {{ csrf_field() }}
                                             {{ method_field('DELETE') }}
                    
                                                  </form>
                                 <div class="am-u-sm-12">
                                     <table width="100%" class="am-table am-table-compact am-table-striped tpl-table-black " id="example-r">
-                                   <form action="{{ url('admin/users') }}">
                                     <div class="am-form-group tpl-table-list-select">
-                                         状态<select data-am-selected="{btnSize: 'sm'}" name="users_status">
+                                         状态<select data-am-selected="{btnSize: 'sm'}" name="user_status">
                                                  <option value="1">普通会员</option>
                                                  <option value="2">VIP会员</option>
                                             </select>
-
-                                            <input type="submit" class='am-btn am-btn-primary tpl-btn-bg-color-success ' value='搜索'>
                                     </div>
-                                    </form>
                                         <thead>
                                             <tr>
                                                 <th>id</th>
@@ -96,11 +92,11 @@
                                               
                                                 <td>
                                                     <div class="tpl-table-black-operation">
-                                                        <a href="{{url('admin/users/create')}}">
+                                                        <a href="{{url('/users/create')}}">
                                                             <i class="am-icon-pencil"></i> 增加
                                                         </a>
                                                         
-                                                        <a href="{{url('admin/users/'.$v->id .'/edit')}}" class="tpl-table-black-operation-del">
+                                                        <a href="{{url('users/'.$v->id .'/edit')}}" class="tpl-table-black-operation-del">
                                                             <i class="am-icon-trash"></i> 修改
                                                         </a>
                                                         <a href="javascript:doDel({{ $v->id }})" class="tpl-table-black-operation-del">
@@ -119,7 +115,7 @@
                                             <!-- more data -->
                                         </tbody>
                                     </table>
-                             {!! $users->appends($where)->render() !!}
+                                {!! $users->fragment('foo')->render() !!}
                                  
                                 </div>
                                

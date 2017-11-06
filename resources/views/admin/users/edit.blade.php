@@ -5,7 +5,7 @@
 
                     <div class="widget-body am-fr">
                                            
-                                <form class="am-form tpl-form-border-form tpl-form-border-br" action="{{ url('admin/users/'.$user->id )}}" method='post'>
+                                <form class="am-form tpl-form-border-form tpl-form-border-br" action="{{ url('users/'.$user->id )}}" method='post'>
                                                   {{ csrf_field() }}
                                                     {{ method_field('PUT') }}
                                     <div class="am-form-group">

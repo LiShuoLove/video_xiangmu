@@ -54,7 +54,7 @@
                      <ul class="nav navbar-nav">
                         <li><a href="index.html">首页</a></li>
 						<li><a href="single-video.html">视频列表</a></li>
-						<li><a href="single-page.html">视频信息</a></li>
+						<li><a href={{('/home/comments')}}>视频信息</a></li>
 						<li><a href="single-page-with-img.html">视频图片</a></li>
 						<li><a href="login.html">登录页面</a></li>
 						<li><a href="gallery-video-boxed.html">所有视频</a></li>

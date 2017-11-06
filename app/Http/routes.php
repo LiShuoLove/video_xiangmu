@@ -20,6 +20,24 @@
 // 前台
 Route::get('/contact','home\conController@index');
 Route::get('/home','home\HomeController@index');
+Route::get('/core','home\HomeController@homes');
+
+// 个人中心
+Route::get('/personalcenter','home\PersonalController@personal');
+
+Route::post('/personalcenter','home\PersonalController@update');
+Route::post('/connect','home\PersonalController@connectus');
+
+
+
+// 联系我们
+Route::get('/lianxiwomen','home\LianxiwomenController@lianxiwomen');
+
+//视频贴
+Route::get('/posted', 'home\PostedController@index');
+//视频页
+Route::get('/page', 'home\PageController@index');
+
 
 //登录
 Route::get('/login','home\LoginController@index');
@@ -28,17 +46,14 @@ Route::post('/login', 'home\LoginController@dologin');
 Route::get('/register', 'home\LoginController@register');
 Route::post('/register', 'home\LoginController@doregister');
 
+//评论
+Route::get('/home/comments','home\CommentController@index');
+Route::post('/home/creates','home\CommentController@create');
+
 //前台购物车
 Route::get('/orders','home\OrderController@index');
 
-	//购物车
-    Route::get('/shop','home\CartController@cart');
-    //加入购物车
-    Route::get('/cart','home\CartController@doshop');
-    //购物车减
-    Route::get('/acc','home\CartController@doAcc');
-    //购物车加
-    Route::get('/add','home\CartController@doAdd');
+
 
 
 

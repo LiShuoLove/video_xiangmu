@@ -15,7 +15,7 @@
                                     <div class="am-form-group">
                                         <div class="am-btn-toolbar">
                                             <div class="am-btn-group am-btn-group-xs">
-                                                <a href="{{('admin/message_add')}}">
+                                                <a href="message_add">
                                                 <button type="button" class="am-btn am-btn-default am-btn-success"><span class="am-icon-plus"></span> 新增</button>
                                                 </a>
                                                 <!-- <button type="button" class="am-btn am-btn-default am-btn-secondary"><span class="am-icon-save"></span> 保存</button> -->
@@ -80,13 +80,13 @@
                                                 <td>{{ $v->type }}</td>
                                                 <td>
                                                 <div class="tpl-table-black-operation">
-                                                        <a href="message_edit?id={{$v->id}}">
+                                                        <a href="/message_edit?id={{$v->id}}">
                                                             <i class="am-icon-pencil"></i> 编辑
                                                         </a>
-                                                        <a href="message_del?id={{$v->id}}" class="tpl-table-black-operation-del">
+                                                        <a href="/message_del?id={{$v->id}}" class="tpl-table-black-operation-del">
                                                             <i class="am-icon-trash"></i> 删除
                                                         </a>
-                                                        <a href="message_examine?id={{$v->id}}">
+                                                        <a href="/message_examine?id={{$v->id}}">
                                                             <i class="am-icon-circle"></i> 审核
                                                         </a>
                                                     </div>

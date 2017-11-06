@@ -19,7 +19,7 @@
                                     <div class="am-form-group">
                                         <div class="am-btn-toolbar">
                                             <div class="am-btn-group am-btn-group-xs">
-                                                <a href="admin/link_add">
+                                                <a href="link_add">
                                                     <button type="button" class="am-btn am-btn-default am-btn-success"><span class="am-icon-plus"></span> 新增</button>
                                                 </a>                                              
                                             </div>
@@ -40,12 +40,9 @@
 
                                 <div class="am-u-sm-12">
                                     <table width="100%" class="am-table am-table-compact am-table-striped tpl-table-black ">
-                                    
                                         <thead>
                                             <tr>
                                                 <th>id</th>
-                                                <th>uid</th>
-                                                <th>用户名</th>
                                                 <th>链接标题</th>
                                                 <th>链接内容</th>
                                                 <th>链接地址</th>
@@ -55,40 +52,30 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-
-                                        @if (session('msg'))
-                                             <script>
-                                                 alert("{{ session('msg') }}");
-
-                                           </script>
-                                         @endif
-                                         
-                                        @foreach($list as $c)
+                                        
                                             <tr class="gradeX">
                                                 <td class="am-text-middle">
-                                                    {{ $c->id }}
+                                                    1
                                                 </td>
-                                                <td class="am-text-middle">{{ $c->uid }}</td>
+                                                <td class="am-text-middle">111111</td>
                                                 <td class="am-text-middle">
-                                                    {{ $c->username }}
+                                                    百度
                                                 </td>
-                                                <td class="am-text-middle">{{ $c->title }}</td>
-                                                 <td class="am-text-middle">{{ $c->content }}</td>
-                                                 <td class="am-text-middle">{{ $c->address }}</td>
-                                                 <td class="am-text-middle">{{ $c->state }}</td>
-                                                  <td class="am-text-middle">{{ $c->ontime }}—{{ $c->offtime }}</td>
+                                                <td class="am-text-middle">www.baidu.com</td>
+                                                 <td class="am-text-middle">1</td>
+                                                  <td class="am-text-middle">2017/10/22—2017/10/30</td>
                                                 <td class="am-text-middle">
                                                     <div class="tpl-table-black-operation">
-                                                        <a href="link_edit?id={{$c->id}}">
+                                                        <a href="link_edit">
                                                             <i class="am-icon-pencil"></i> 编辑
                                                         </a>
-                                                        <a href="link_del?id={{$c->id}}" class="tpl-table-black-operation-del">
+                                                        <a href="javascript:;" class="tpl-table-black-operation-del">
                                                             <i class="am-icon-trash"></i> 删除
                                                         </a>
                                                     </div>
                                                 </td>
                                             </tr>
-                                        @endforeach
+                                        
                                            <!-- more data -->
                                         </tbody>
                                     </table>

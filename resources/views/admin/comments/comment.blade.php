@@ -27,7 +27,7 @@
                                     <div class="am-form-group">
                                         <div class="am-btn-toolbar">
                                             <div class="tpl-table-black-operation">
-                                                <a href="{{url('admin/comment/create')}}">
+                                                <a href="{{url('/comment/create')}}">
                                                     <i class="am-icon-pencil"></i> 新增评论
                                                 </a>
                                             </div>
@@ -36,7 +36,7 @@
                                 </div>
                                 
                                 <div class="am-u-sm-12 am-u-md-12 am-u-lg-6">
-                                    <form action="{{url('admin/comment')}}" method="get">
+                                    <form action="{{url('comment')}}" method="get">
                                         <div class="am-input-group am-input-group-sm tpl-form-border-form cl-p">
                                          
                                             <input type="text" name="guanjianzi" class="am-form-field ">
@@ -67,14 +67,14 @@
                                             @foreach ($comment as $comment)
                                             <tr class="gradeX">
                                                 <td>{{ $comment->id }}</td>
-                                                <td>{{ $comment->typename }}</td>
+                                                <td>{{ $comment->category_id }}</td>
                                                 <td>{{ $comment->video_id }}</td>
                                                 <td>{{ $comment->username }}</td>
                                                 <td>{{ $comment->create_time }}</td>
                                                 <td>{{ $comment->content }}</td>
                                                 <td>
                                                     <div class="tpl-table-black-operation">
-                                                        <a href="{{url('admin/comment/'.$comment->id .'/edit')}}">
+                                                        <a href="{{ url('comment/'.$comment->id.'/edit') }}">
                                                             <i class="am-icon-pencil"></i> 编辑
                                                         </a>
                                                         <a href="javascript:doDel({{ $comment->id }})" class="tpl-table-black-operation-del">

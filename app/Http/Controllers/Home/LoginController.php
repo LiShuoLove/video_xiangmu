@@ -33,18 +33,15 @@ class LoginController extends Controller
         // Index_users_login::where('login_name','like','%'.$name.'%');
         //查询数据库中的所有数据
         // $list = user_login::all();
-        $list = DB::table('user_login')->get();
+        $list = DB::table('user_login')->where(['tel' => $name,'password'=> $password])->first();
 
         // 遍历输出用户名并判断
-        foreach ($list as $v) {
-            // echo $v;
-        if($v->tel == $name && $v->password == $password)
-        {
-             
-             return redirect('/home')->with('msg','登陆成功');
-        }else{
-            return redirect('/login')->with('msg','登陆失败，请核对用户名或密码后登陆');
-            }
+        if ($list) {
+            $user = ['id'=>$list->id,'tel'=>$list->tel,'password'=>$list->password,'lasttime'=>$list->lasttime];
+            $request->session()->put('user', $user);
+            return redirect('/core');
+        } else {
+            return back()->with('msg', '登录失败请重新登录！');
         }
 
 
@@ -79,11 +76,12 @@ class LoginController extends Controller
              $time = date("Y-m-d H:i:s");                                 
             // 'phone'=>'regex:/^1[34578][0-9]{9}$/'
               //Model方式获取所有tel字段的内容
-            $ob = user_sign::where('tel',$tel)->first(); 
+            $ob = user_sign::where('tel',$tel)->first();
              if($ob){
-                echo '已有该用户';
+              return redirect('/login')->with('msg','用户已经存在');
              }else{
                     //开启事务
+                // DB::insert('insert into User_sign (user_id, username,tel,password,created_at) values (?, ?,?,?,?)', [,,$flight->tel,$flight->password,,]);
                 \DB::beginTransaction();
                 try{
                     // 插入注册表
@@ -95,6 +93,7 @@ class LoginController extends Controller
                     // $flight->rg_time= $time;
                     
                     $result1 = $flight->save();
+
                     //获取注册用户的id
                      $id = user_sign::all()->last()->sid;
                     //插入登录表
@@ -109,6 +108,7 @@ class LoginController extends Controller
                      $flight2->lasttime= $time;
                      
                     $result2 = $flight2->save();
+
                     if ($pwd != null && strlen($pwd) >= '6') {
                         
                     }else{
@@ -119,7 +119,7 @@ class LoginController extends Controller
                          return redirect('/register')->with('msg','手机号格式不正确');
                     }
                     if($result1 && $result2){
-                        
+                        \DB::commit();
                         //重定向到主页
                          return redirect('/login')->with('msg','注册成功，请登录');
                     }

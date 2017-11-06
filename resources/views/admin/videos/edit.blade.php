@@ -96,8 +96,8 @@
                                         <div class="am-u-sm-9">
                                             <div class="am-form-group am-form-file">
                                                 <div class="tpl-form-file-img">
-                                                        <input type="text"  name="video_original" value="{{$data_video_info->video_original}}" id="video_original" style="width:25%">
-                                                        <img src="{{asset('./'.$data_video_info->video_original)}}" style="width:350px;" class="tpl-table-line-img" alt="">
+                                                        <input type="text"  name="video_movie" value="{{$data_video_info->video_movie}}" id="video_movie" style="width:25%">
+                                                        <video src="{{asset('./'.$data_video_info->video_movie)}}" style="width:350px;" class="tpl-table-line-img" alt="">
                                                     </div>
                                             </div>
 

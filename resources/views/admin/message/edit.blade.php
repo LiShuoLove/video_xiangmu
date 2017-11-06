@@ -19,7 +19,7 @@
                             </div>
                             <div class="widget-body am-fr">
 
-                                <form class="am-form tpl-form-border-form tpl-form-border-br" action="{{ url('admin/message_edit') }}" method='post'>
+                                <form class="am-form tpl-form-border-form tpl-form-border-br" action="{{ url('/message_edit') }}" method='post'>
                                       {{ csrf_field() }}
                                       @foreach($list as $v)
                                 
@@ -28,8 +28,7 @@
                                         <div class="am-form-group">
                                             <label for="user-name" class="am-u-sm-3 am-form-label">id <span class="tpl-form-line-small-title">id</span></label>
                                             <div class="am-u-sm-9">
-                                                <input type="text" class="tpl-form-input" name="fid" value="{{ $v->id }}" disabled>
-                                                <input type="hidden" class="tpl-form-input" name="id" value="{{ $v->id }}" >
+                                                <input type="text" class="tpl-form-input" name="id" value="{{ $v->id }}" disabled>
                                             </div>
                                         </div>
                                     </div>

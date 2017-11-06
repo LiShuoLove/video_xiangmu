@@ -65,11 +65,11 @@
 		// 个人信息留言编辑
 		public function update(Request $request)
 		{
-			
+
 			$message = $request->except('_token');
 
 			$id = $request->only('id');
-		
+			
 			$res = DB::table('data_video_message')->where('id', $id)->update($message);
 			if ($res > 0) {
 				return redirect('admin/message')->with('msg','修改成功');

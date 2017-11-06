@@ -53,7 +53,6 @@ class ListController extends Controller
         }
         //查询构造器(优雅的)
         $info = $ob ->paginate(3);
-        // dd($info);
         //返回一个页面,在页面中显示
         return view('admin.videos.list', ['info'=>$info, 'where'=>$where]);
     
@@ -87,7 +86,10 @@ class ListController extends Controller
         //去除token
         $data = $request->except('_token','query_string');
         //执行添加并得到id
-     
+        // dd($data);
+        if( isset($data['file_upload'] )) unset($data['file_upload']);
+        if( isset($data['file_upload_movie'] )) unset($data['file_upload_movie']);
+
         $id = DB::table('data_video_info')->insertGetId($data);
         //如果有id说明添加成功
         if($id > 0){
@@ -180,30 +182,12 @@ class ListController extends Controller
             $newName = date('YmdHis').mt_rand(1000,9999).'.'.$entension;
             $path = $file->move(public_path().'/upload',$newName);
             $filepath = '/upload'.$newName;
-
-
             //返回文件的路径
             return  $filepath;
         }
     }
 
-     public function uploadsss(Request $request)
-    {
-        return 11111;
-        // dd($request->all());
-        // $filename = $_FILES['file']['name'];
-        
-        // $key = $_POST['key'];
-        // $key2 = $_POST['key2'];
-
-        // if ($filename) {
-        //     move_uploaded_file($_FILES["file"]["tmp_name"],
-        //       "uploads/" . $filename);
-        // }
-        // echo $key;
-        // echo $key2;
-            
-     }
+ 
 
     public function upload()
     {
@@ -215,8 +199,21 @@ class ListController extends Controller
             $newName = date('YmdHis').mt_rand(1000,9999).'.'.$entension;
             $path = $file->move('upload',$newName);
             $filepath = 'upload/'.$newName;
-             $id = DB::insert("insert into data_video_info (video_original) values (?)",[$filepath]);
-             
+            //返回文件的路径
+            return  $filepath;
+        }
+    }
+
+     public function upload_video()
+    {
+        //获取上传的文件对象
+        $file = Input::file('file_upload_movie');
+        //判断文件是否有效
+        if($file->isValid()){
+            $entension = $file->getClientOriginalExtension();//上传文件的后缀名
+            $newName = date('YmdHis').mt_rand(1000,9999).'.'.$entension;
+            $path = $file->move('upload',$newName);
+            $filepath = 'upload/'.$newName;
             //返回文件的路径
             return  $filepath;
         }
