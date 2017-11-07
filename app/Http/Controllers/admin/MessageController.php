@@ -19,9 +19,20 @@
 		{
 			$where = [];
 			$ob = DB::table('data_video_message');
-			$list = $ob->paginate(10);
+			
+
+        if($request->has('user_name')){
+
+            $name = $request -> input('user_name');
+            $where['user_name'] = $name;
+             $ob->where('user_name', 'like', '%'.$name.'%');
+
+        }
+        	$list = $ob->paginate(3);
+
+
 			// dd($list)->all();
-			return view ('admin.message.message',['list'=>$list]);
+			return view ('admin.message.message',['list'=>$list, 'where'=>$where]);
 		}
 
 
@@ -57,7 +68,7 @@
 			
 			$res = DB::table('data_video_message')->where('id', $edit);
 
-			$list = $res->paginate(1);
+			$list = $res->paginate(3);
 
 			return view('admin.message.edit',['list'=>$list]);
 			
@@ -80,30 +91,30 @@
 
 
 		// 个人信息审核
-		public function examine(Request $request)
-    {
-    	$id=$request->all();
-    	$id=$id['id'];
-    	// dd($id);
-        $res = DB::table('data_video_message')->where('id', $id)->first();
-        // dd($res);
-        if ($res->examine == 0) {
-            $res->examine = 1;
-            //dd($res);
-            $res = $res->examine;
-            $res = DB::table('data_video_message')->where('id', $id)->update(['examine'=>$res]);
-    //       dd($res);
-            return redirect('admin/message');
-        } else {
-            $res->examine = 1;
-            //dd($res);
-            $res = $res->examine;
-            $res = DB::table('data_video_message')->where('id', $id)->update(['examine'=>$res]);
-//          dd($res);
-            return redirect('admin/message');
-        }
+// 		public function examine(Request $request)
+//     {
+//     	$id=$request->all();
+//     	$id=$id['id'];
+//     	// dd($id);
+//         $res = DB::table('data_video_message')->where('id', $id)->first();
+//         // dd($res);
+//         if ($res->examine == 0) {
+//             $res->examine = 1;
+//             //dd($res);
+//             $res = $res->examine;
+//             $res = DB::table('data_video_message')->where('id', $id)->update(['examine'=>$res]);
+//     //       dd($res);
+//             return redirect('admin/message');
+//         } else {
+//             $res->examine = 1;
+//             //dd($res);
+//             $res = $res->examine;
+//             $res = DB::table('data_video_message')->where('id', $id)->update(['examine'=>$res]);
+// //          dd($res);
+//             return redirect('admin/message');
+//         }
       
-    }
+//     }
 
 
 		// 接收提交的信息到这里 （还要发送到数据库 可是怎么才能发送到数据库呢 哦····）

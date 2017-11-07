@@ -33,13 +33,30 @@
                <img src="{{asset('homes/img/banners/banner-sm.jpg')}}" class="img-responsive" alt="Buy Now">
             </div>
             <div class="col-lg-3 col-md-6 col-sm-7 hidden-xs">
-               <div class="right-box">
-                  <button type="button" class="access-btn" data-toggle="modal" data-target="#enquirypopup">get free access</button>
+               @if(session('user')['id'] !== null)
+                <div class="right-box">
+                  <a href="{{url('/personalcenter')}}"><button type="button" class="access-btn">个人中心</button></a>
                </div>
+              @endif
+
+              @if(session('user')['id'] == null)
+               <div class="right-box">
+                  <a href="{{ url('/login') }}"><button type="button" class="access-btn">登录</button></a>
+               </div>
+               <div class="right-box">
+                  <a href="{{ url('/register') }}"><button type="button" class="access-btn">注册</button></a>
+               </div>
+               @endif
             </div>
          </div>
+          @if (session('msg'))
+                                <script>
+                                    alert("{{ session('msg') }}")
+                                </script>
+                            @endif
          <!-- MENU -->
          <div class="row home-mega-menu ">
+
             <div class="col-md-12">
                <nav class="navbar navbar-default">
                   <div class="navbar-header">
@@ -50,29 +67,30 @@
                      <span class="icon-bar"></span>
                      </button>
                   </div>
-                  <div class="collapse navbar-collapse js-navbar-collapse megabg dropshd ">
-                     <ul class="nav navbar-nav">
-                        <li><a href="index.html">Home</a></li>
-						<li><a href="single-video.html">Video Post</a></li>
-						<li><a href="single-page.html">Single Page - Basic</a></li>
-						<li><a href="single-page-with-img.html">Single Page - with Image</a></li>
-						<li><a href="login.html">Login</a></li>
-						<li><a href="gallery-video-boxed.html">Gallery</a></li>
-						<li><a href="contact.html">Contact</a></li>
+                 <div class="collapse navbar-collapse js-navbar-collapse megabg dropshd " style="height:100%;">
+          <ul class="nav navbar-nav">
+                  <li><a href="{{ url('/home') }}">首页</a></li>
+               
+                  @foreach($sect as $c)
+                    <li><a href="{{url('/dz')}}">{{ $c->typename }}</a></li>
+                  @endforeach
+                  @foreach($secttwo as $t)
+                    <li><a href="{{url('/aq')}}">{{ $t->typename }}</a></li>
+                  @endforeach
+                  @foreach($sectsan as $s)
+                    <li><a href="{{url('/js')}}">{{ $s->typename }}</a></li>
+                  @endforeach
+                  @foreach($sectfour as $d)
+                    <li><a href="{{url('/xj')}}">{{ $d->typename }}</a></li>
+                  @endforeach
+                  
+                
+                  <li><a onclick="connectUs()" href="javascript:void(0)">联系我们</a></li>
+       
+                   <!-- <li><a href="personalcenter">个人中心</a></li> -->
                      </ul>
-                     <ul class="social">
-                        <li class="social-facebook"><a href="#" class="fa fa-facebook social-icons"></a></li>
-                        <li class="social-google-plus"><a href="#" class="fa fa-google-plus social-icons"></a></li>
-                        <li class="social-twitter"><a href="#" class="fa fa-twitter social-icons"></a></li>
-                        <li class="social-youtube"><a href="#" class="fa fa-youtube social-icons"></a></li>
-                        <li class="social-rss"><a href="#" class="fa fa-rss social-icons"></a></li>
-                     </ul>
-                     <div class="search-block">
-                        <form>
-                           <input type="search" placeholder="Search">
-                        </form>
-                     </div>
-                  </div>
+          
+          <div>
                   <!-- /.nav-collapse -->
                </nav>
             </div>
@@ -80,81 +98,36 @@
          <!-- SINGLE VIDEO -->
          <div class="row">
             <!-- SIDEBAR -->
-            <div class="col-lg-2 col-md-4 hidden-sm hidden-xs">
-               <aside class="dark-bg">
-                  <article>
-                     <h2 class="icon"><i class="fa fa-gears" aria-hidden="true"></i>categories</h2>
-                     <ul class="sidebar-links">
-                        <li class="fa fa-chevron-right"><a href="#">Lifestyle</a><span>4.000</span></li>
-                        <li class="fa fa-chevron-right"><a href="#">World News</a><span>2.000</span></li>
-                        <li class="fa fa-chevron-right"><a href="#">Funny videos</a><span>650</span></li>
-                        <li class="fa fa-chevron-right"><a href="#">Hot Stories</a><span>4.000</span></li>
-                        <li class="fa fa-chevron-right"><a href="#">Music Clips</a><span>7.800</span></li>
-                        <li class="fa fa-chevron-right"><a href="#">Premier Trailers</a><span>200</span></li>
-                     </ul>
-                  </article>
-                  <div class="clearfix spacer"></div>
-                  <article>
-                     <h2 class="icon"><i class="fa fa-hashtag" aria-hidden="true"></i>rankings</h2>
-                     <ul class="sidebar-links">
-                        <li class="fa fa-chevron-right"><a href="#">best rated videos</a></li>
-                        <li class="fa fa-chevron-right"><a href="#">highly viewed</a></li>
-                        <li class="fa fa-chevron-right"><a href="#">most commented</a></li>
-                        <li class="fa fa-chevron-right"><a href="#">videos of month</a></li>
-                        <li class="fa fa-chevron-right"><a href="#">popular all time</a></li>
-                     </ul>
-                  </article>
-                  <div class="clearfix spacer"></div>
-                  <article>
-                     <h2 class="icon"><i class="fa fa-tag" aria-hidden="true"></i>tags</h2>
-                     <ul class="footer-tags">
-                        <li><a href="#">videos</a></li>
-                        <li><a href="#">premium</a></li>
-                        <li><a href="#">hair</a></li>
-                        <li><a href="#">beauty</a></li>
-                        <li><a href="#">ranking</a></li>
-                        <li><a href="#">lifestyle</a></li>
-                        <li><a href="#">sport</a></li>
-                        <li><a href="#">money</a></li>
-                        <li><a href="#">comments</a></li>
-                     </ul>
-                  </article>
-                  <div class="clearfix spacer"></div>
-                  <article class="reviews">
-                     <h2 class="icon"><i class="fa fa-star" aria-hidden="true"></i>top review</h2>
-                     <!-- POST L size -->
-                     <div class="post post-medium">
-                        <a class="thumbr post-thumb" href="#">
-                        <span class="review-number">4.8</span>
-                        <img src="{{asset('homes/img/thumbs/thumb-review7.jpg')}}" class="review img-responsive" alt="Review">
-                        </a>
-                        <div class="infor">
-                           <h4>
-                              <a class="title" href="#">Lazy Betty B*tch</a>
-                           </h4>
-                           <div class="ratings">
-                              <i class="fa fa-star" aria-hidden="true"></i>
-                              <i class="fa fa-star" aria-hidden="true"></i>
-                              <i class="fa fa-star-half-o" aria-hidden="true"></i>
-                              <i class="fa fa-star-o"></i>
-                              <i class="fa fa-star-half"></i>
-                           </div>
-                        </div>
-                     </div>
-                  </article>
-                  <div class="clearfix spacer"></div>
-                  <article>
-                     <h2 class="icon"><i class="fa fa-plug" aria-hidden="true"></i>subscribe</h2>
-                     <!-- SUBSCRIBE FIELD -->
-                     <form name="search-submit" method="post" action="#" id="subscribe-submit">
-                        <fieldset class="search-fieldset">
-                           <input id="subscribe" type="text" name="search" size="12" class="search-field" placeholder="Your email address" value="">
-                           <button class="subscribe-btn" type="submit" title="Subscribe">Subscribe</button>
-                        </fieldset>
-                     </form>
-                  </article>
-               </aside>
-            </div>
+            <!-- SIDEBAR -->
+   <div class="col-lg-2 col-md-4 hidden-sm hidden-xs">
+      <aside class="dark-bg">
+        <article>
+          <h2 class="icon"><i class="fa fa-flash" aria-hidden="true"></i>观看排行</h2>
+          <ul class="sidebar-links">
+            <li class="fa fa-chevron-right"><a href="#">两只黄鹂鸣翠柳</a><span>4.000</span></li>
+            <li class="fa fa-chevron-right"><a href="#">一行白鹭上青天</a><span>2.000</span></li>
+            <li class="fa fa-chevron-right"><a href="#">遥知不是雪</a><span>650</span></li>
+            <li class="fa fa-chevron-right"><a href="#">为有暗香来</a><span>4.000</span></li>
+            <li class="fa fa-chevron-right"><a href="#">采菊东篱下</a><span>7.800</span></li>
+            <li class="fa fa-chevron-right"><a href="#">明月几时有</a><span>200</span></li>
+            <li class="fa fa-chevron-right"><a href="#">把酒问青天</a><span>15</span></li>
+          </ul>
+        </article>
+        <div class="clearfix spacer"></div>
+        <article>
+          <h2 class="icon"><i class="fa fa-gears" aria-hidden="true"></i>视频评论排行</h2>
+          <ul class="sidebar-links">
+            <li class="fa fa-chevron-right"><a href="#">床前明月光</a><span>4.000</span></li>
+            <li class="fa fa-chevron-right"><a href="#">疑是地上霜</a><span>2.000</span></li>
+            <li class="fa fa-chevron-right"><a href="#">举头望明月</a><span>650</span></li>
+            <li class="fa fa-chevron-right"><a href="#">低头思故乡</a><span>4.000</span></li>
+            <li class="fa fa-chevron-right"><a href="#">桃花潭水深千尺</a><span>7.800</span></li>
+            <li class="fa fa-chevron-right"><a href="#">不及汪伦送我情</a><span>200</span></li>
+          </ul>
+        </article>
+        <div class="clearfix spacer"></div>
+      </aside>
+   </div>
             <!-- SINGLE VIDEO -->	
             <div id="single-video-wrapper" class="col-lg-10 col-md-8">
                <div class="row">
@@ -220,7 +193,7 @@
                         <div class="clearfix spacer"></div>
                         <!-- DETAILS -->
                         <div class="video-content">
-                           <h2 class="title main-head-title">Video Details</h2>
+                           <h2 class="title main-head-title">视频简介</h2>
                            <p>
                               <?php echo $movie->video_info_plot; ?>
                            </p>
@@ -240,9 +213,9 @@
 								<form action="{{url('/home/creates')}}" method="post" >
                            {{ csrf_field() }}
 									<textarea placeholder="在这里填写评论" name="content"></textarea>
+                           <input type="hidden" name="videoid" value='<?php echo $movie->id; ?>'>
                            <input type="hidden" name="parent_id" value='0'>
-									<div class="comment-box-control">
-									
+									<div class="comment-box-control">								
 										<button type="submit" class="btn pull-right"><i class="fa fa-share"></i> 提交</button>
 									</div>
 								</form>
@@ -261,9 +234,16 @@
    									<div class="panel-body">
    										<?php echo $val['content']?>
    									</div>
-                              <div class="comment-box-control">
-                           
-                                 <button type="submit" class="btn pull-right"><i class="fa fa-share"></i> 回复</button>
+                              <div class="comment-box-control" >
+                                 <form action="{{url('/home/creates')}}" method="post">
+                                    {{ csrf_field() }}
+                                    <textarea style='color:black' placeholder="在这里填写评论" name="content" id="com2"></textarea>
+                                    <input type="hidden" name="videoid" value='<?php echo $movie->id; ?>'>
+                                    <input type="hidden" name="parent_id" value='<?php echo $val['id']; ?>'>
+                                    <div class="comment-box-control">                        
+                                       <button type="submit" id="show" class="btn pull-right"><i class="fa fa-share"></i> 回复</button>
+                                    </div>
+                                 </form>
                               </div>
    								</div>
    							</div>
@@ -854,4 +834,19 @@
  
        }
  
+</script>
+
+<!-- <script type="text/javascript">
+   var div = document.getElementById('com2').hide();
+
+</script> -->
+<script type="text/javascript">
+   $(document).ready(function(){
+     
+      $("#com2").hide();
+      // if()
+      $("#show").click(function(){
+      $("#com2").toggle();
+     });
+   });
 </script>

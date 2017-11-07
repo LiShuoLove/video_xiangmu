@@ -12,22 +12,66 @@ class CommentController extends Controller
 {
       public function index(Request $request)
     {
+            //视频
+        $firstMovies = DB::table('data_video_info')->where('category_id', 1)->take(5)->get();
+        $twoMovies = DB::table('data_video_info')->where('category_id', 2)->take(5)->get(); 
+        $threeMovies = DB::table('data_video_info')->where('category_id', 3)->take(5)->get(); 
+        $fourMovies = DB::table('data_video_info')->where('category_id', 4)->take(5)->get(); 
+
+        //广告  
+        $lol = DB::table('data_video_AD')->where('id', 1);
+        $tb = DB::table('data_video_AD')->where('id', 2);
+        $bd = DB::table('data_video_AD')->where('id', 3);
+        $sg = DB::table('data_video_AD')->where('id', 4);
+        $fei = DB::table('data_video_AD')->where('id', 5);
+        //搜索分区
+        $qbk = DB::table('data_category');
+        //搜索版块
+        $bk = DB::table('data_category')->where('id', 1);
+        $bktwo = DB::table('data_category')->where('id', 2);
+        $bkthree = DB::table('data_category')->where('id', 3);
+        $bkfour = DB::table('data_category')->where('id', 4);
+        //搜索友情链接
+        $lj = DB::table('data_video_Connect');
+
+        //显示广告
+        $list = $lol->paginate(1);
+        $ad = $tb->paginate(1);
+        $ab = $bd->paginate(1);
+        $sou = $sg->paginate(1);
+        $che = $fei->paginate(1);
+        //显示分区
+        $part = $qbk->paginate(99);
+        //显示版块
+        $sect = $bk->paginate(1);
+        $secttwo = $bktwo->paginate(1);
+        $sectsan = $bkthree->paginate(1);
+        $sectfour = $bkfour->paginate(1);
+        //显示友情链接
+        $connect = $lj->paginate(99);
+
+
         //取出videoid 
         $videoid = $request->get('mid');
+        // dd($videoid);
         if( empty($videoid) )  return view('errors.503', [
             'msg' => '该视频不存在',
         ]);
 
         // 以下是电影评论
         // $videoid = 17;//替换
-        $sql = "select * from comment where video_id = " . $videoid;
-        $list = DB::select($sql);
+        //$sql = "select * from comment where video_id = " . $videoid;
+         $list = DB::table('comment')
+                    ->where('video_id','=',$videoid)
+                    ->orderBy('id', 'desc')
+                    ->get();
+        //$list = DB::select($sql)->orderBy('id', 'desc');
         // foreach($list as $k=>$v){
         //     $a = explode(",",$v['path']);
         // }
         $lists = $this->object_array($list);
         $treelist = $this->getSubTree($lists,'parent_id','id',0);
-        //var_dump($treelist);die();
+        // var_dump($treelist);die();
         
 
         // 以下是视频信息
@@ -40,6 +84,21 @@ class CommentController extends Controller
         return view('home.comments.comment',[
             'data'   => $treelist,
             'movie'  => $movie,
+            'list'=>$list,
+             'ad'=>$ad, 
+             'ab'=>$ab, 
+             'sou'=>$sou, 
+             'che'=>$che, 
+             'part'=>$part, 
+             'sect'=>$sect, 
+             'secttwo'=>$secttwo, 
+             'sectsan'=>$sectsan, 
+             'sectfour'=>$sectfour, 
+             'connect'=>$connect,
+             'firstMovies' => $firstMovies,
+             'twoMovies'   => $twoMovies,
+             'threeMovies'   => $threeMovies,
+             'fourMovies'   => $fourMovies,
         ]);
 
     }
@@ -52,25 +111,36 @@ class CommentController extends Controller
      */
     public function create(Request $request)
     {
+
+      
         //判断是否有userid username
         //否则不予评论
-        // if(!$userid){
-        //     return false;
-        // }
+        $user = $request->session()->get('user');
+      
+        if( empty($user) ){
+            return view('errors.503', [
+                'msg' => '请登录后在进行评论',
+            ]);
+        }
         //从cookie/session里面取
-        //dd(1);
-        $userid = 11;
-        $username = '马燕飞';
-        $videoid = 17;
+        // $userid = $request->session()->get();
+        // $username = $request->session()->get();
+        // dd($userid);
+        $userid = $user['id'];
+        $username = $user['username'];
+        $videoid = $request->get('videoid');
         $content = $request->get('content');
+        if(empty($content)){
+            return back()->with('msg','评论不能为空，请重新填写评论！');
+        }
         $parent_id = $request->get('parent_id');
         $sql = "insert into comment (user_id,username,parent_id,video_id,content,create_time) values (" . $userid .' , "'. $username . '" , ' . $parent_id . ',' . $videoid . ',"' . $content . '"' . ',"' . date('Y-m-d H:i:s', time()) . '"'.")";
-
+        // if($sql){}
         //var_dump($sql);die();
         $insert = DB::insert($sql);
         if($insert){
-            alert('评论成功!');
-            return view('11');
+            return redirect("/home/comments?mid=".$videoid);
+            // return '评论成功!';
         }else{
             return '评论失败!';
         }

@@ -126,6 +126,11 @@
                        
                                     <form method="post" data-abide novalidate action="/register">
                                     {{ csrf_field() }}
+
+                                    <div class="input-group">
+                                          <span class="fa fa-lock login-inputicon"></span>
+                                          <input type="" id="username" name="username" placeholder="请输入用户名" required> 
+                                       </div>
                                        <div class="input-group">
                                           <span class="fa fa-lock login-inputicon"></span>
                                           <input type="text" id="tel" name="tel" placeholder="手机号" required> 
@@ -136,18 +141,19 @@
                                        </div>
                                        <div class="input-group">
                                           <span class="fa fa-user login-inputicon"></span>
-                                          <input type="text" name="code" placeholder="确认密码" required>
+                                          <input type="text" name="code" placeholder="请输入验证码" required>
                                        </div>
 
                                        
                                        <div class="login-btn-box">
                                           <button class="access-btn" type="submit" name="submit">注册</button>
+                                          <button class="access-btn" onclick="yan()" type="button" name="submit">验证码</button>
                                        </div>
                                     </form>
                                     <script>
                                         function sun()
                                           {
-                 
+               
                                              var phone = document.getElementById('tel').value;
                  
                                              if(!(/^1[34578]\d{9}$/.test(phone))){
@@ -321,4 +327,15 @@
          </div>
       </div>
    </body>
+   <script>
+      function yan()
+      {
+        
+         var shou = $('#tel').val();
+         // alert(shou);
+            $.post('/yan',{'shou':shou,'_token':'{{csrf_token()}}'},function(data){
+               alert(data);
+         });
+      }
+   </script>
 </html>

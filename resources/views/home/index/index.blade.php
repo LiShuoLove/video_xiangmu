@@ -3,15 +3,11 @@
    <!-- HOME MAIN POSTS -->   
    <div class="col-lg-10 col-md-8">
      <section id="home-main">
-           @foreach($part as $c)
-                
+          @foreach($sect as $c)   
         <div class="row">
           <!-- ARTICLES -->
           <div class="col-lg-12 col-md-12 col-sm-12">
-    
-                  <h2 class="icon"><i class="fa fa-television" aria-hidden="true"></i>{{ $c->partname }}</h2>
-             
-                   
+                  <h2 class="icon"><i class="fa fa-television" aria-hidden="true"></i>{{ $c->typename }}</h2>
             <div class="row auto-clear">
          
               <?php foreach( $firstMovies as $fmk => $fmy){ ?>
@@ -43,20 +39,146 @@
               <?php }?>
               @endforeach
 
+            @foreach($secttwo as $t)   
+              <div class="row">
+                <!-- ARTICLES -->
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                        <h2 class="icon"><i class="fa fa-television" aria-hidden="true"></i>{{ $t->typename }}</h2>
+
+                <div class="row auto-clear">
+         
+              <?php foreach( $twoMovies as $tmk => $tmy){ ?>
+                 <article class="col-lg-3 col-md-6 col-sm-4">
+                   <!-- POST L size -->
+                   <div class="post post-medium" >
+                     <div class="thumbr">
+                       <a class="afterglow post-thumb" href="/home/comments?mid=<?php echo  $tmy->id; ?>" ><!-- data-lity -->
+                          <span class="play-btn-border" title="Play"><i class="fa fa-play-circle headline-round" aria-hidden="true"></i></span>
+                          <div class="cactus-note ct-time font-size-1"><span>02:02</span></div>
+                          <img class="img-responsive" src = "/<?php echo $tmy->video_original ?>" alt="#">
+                       </a>
+                     </div>
+                     <div class="infor">
+                       <h4>
+                          <a class="title"  href="/home/comments?mid=<?php echo  $tmy->id; ?>"><?php echo $tmy->video_info_name ?></a>
+                       </h4>
+                       <span class="posts-txt" title="Posts from Channel"><i class="fa fa-thumbs-up" aria-hidden="true"></i>20.895</span>
+                       <div class="ratings">
+                          <i class="fa fa-star" aria-hidden="true"></i>
+                          <i class="fa fa-star" aria-hidden="true"></i>
+                          <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                          <i class="fa fa-star-o"></i>
+                          <i class="fa fa-star-half"></i>
+                       </div>
+                     </div>
+                   </div>
+                 </article>
+              <?php }?>
+
+              @endforeach
+
+              @foreach($sectsan as $s)   
+              <div class="row">
+                <!-- ARTICLES -->
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                        <h2 class="icon"><i class="fa fa-television" aria-hidden="true"></i>{{ $s->typename }}</h2>
+                </div>
+
+                <?php foreach( $threeMovies as $smk => $smy){ ?>
+                 <article class="col-lg-3 col-md-6 col-sm-4">
+                   <!-- POST L size -->
+                   <div class="post post-medium" >
+                     <div class="thumbr">
+                       <a class="afterglow post-thumb" href="/home/comments?mid=<?php echo  $smy->id; ?>" ><!-- data-lity -->
+                          <span class="play-btn-border" title="Play"><i class="fa fa-play-circle headline-round" aria-hidden="true"></i></span>
+                          <div class="cactus-note ct-time font-size-1"><span>02:02</span></div>
+                          <img class="img-responsive" src = "/<?php echo $smy->video_original ?>" alt="#">
+                       </a>
+                     </div>
+                     <div class="infor">
+                       <h4>
+                          <a class="title"  href="/home/comments?mid=<?php echo  $smy->id; ?>"><?php echo $smy->video_info_name ?></a>
+                       </h4>
+                       <span class="posts-txt" title="Posts from Channel"><i class="fa fa-thumbs-up" aria-hidden="true"></i>20.895</span>
+                       <div class="ratings">
+                          <i class="fa fa-star" aria-hidden="true"></i>
+                          <i class="fa fa-star" aria-hidden="true"></i>
+                          <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                          <i class="fa fa-star-o"></i>
+                          <i class="fa fa-star-half"></i>
+                       </div>
+                     </div>
+                   </div>
+                 </article>
+              <?php }?>
+         
+                </div>
+              @endforeach
+
+              @foreach($sectfour as $d)   
+              <div class="row">
+                <!-- ARTICLES -->
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                        <h2 class="icon"><i class="fa fa-television" aria-hidden="true"></i>{{ $d->typename }}</h2>
+                </div>
+
+                <?php foreach( $fourMovies as $dmk => $dmy){ ?>
+                 <article class="col-lg-3 col-md-6 col-sm-4">
+                   <!-- POST L size -->
+                   <div class="post post-medium" >
+                     <div class="thumbr">
+                       <a class="afterglow post-thumb" href="/home/comments?mid=<?php echo  $dmy->id; ?>" ><!-- data-lity -->
+                          <span class="play-btn-border" title="Play"><i class="fa fa-play-circle headline-round" aria-hidden="true"></i></span>
+                          <div class="cactus-note ct-time font-size-1"><span>02:02</span></div>
+                          <img class="img-responsive" src = "/<?php echo $dmy->video_original ?>" alt="#">
+                       </a>
+                     </div>
+                     <div class="infor">
+                       <h4>
+                          <a class="title"  href="/home/comments?mid=<?php echo  $dmy->id; ?>"><?php echo $dmy->video_info_name ?></a>
+                       </h4>
+                       <span class="posts-txt" title="Posts from Channel"><i class="fa fa-thumbs-up" aria-hidden="true"></i>20.895</span>
+                       <div class="ratings">
+                          <i class="fa fa-star" aria-hidden="true"></i>
+                          <i class="fa fa-star" aria-hidden="true"></i>
+                          <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                          <i class="fa fa-star-o"></i>
+                          <i class="fa fa-star-half"></i>
+                       </div>
+                     </div>
+                   </div>
+                 </article>
+              <?php }?>
+         
+                </div>
+              @endforeach
+
             </div>
             <div class="clearfix spacer"></div>
           </div>
           <!-- RIGHT ASIDE -->
-          <div class="col-lg-3 hidden-md col-sm-12 text-center top-sidebar">
+          <div class="col-lg-12 hidden-md col-sm-12 text-center top-sidebar">
             <!-- SUBSCRIBE BOX -->  
              <div class="subscribe-box">
         
             <!-- SIDEBAR ADVERTISE BOX -->
             @foreach($ad as $a)
-            <a href="{{ 'http://'.$a->address }}" class="banner-l hidden-sm hidden-xs">
-            <img src = "{{ asset ('upload/'.$a->picture) }}" class="img" alt="Buy Now Muvee Reviews Bootstrap HTML5 Template" title="{{ $a->title }}" style="width:1010px;height:150px;">
+            <?php 
+              if ($a->state != 1){
+            ?>
+                <a href="#" class="banner-l hidden-sm hidden-xs">
+                  <img src = "{{ asset ('homes/img/banners/banner-sm.jpg') }}" class="img-responsive" alt="Muvee Reviews Video Magazine HTML5 Bootstrap" title="可购买" style="height:150px;width:1010px;">
+                  </a>
+            <?php
+              } else {
+            ?>
+                <a href="{{ 'http://'.$a->address }}" class="banner-l hidden-sm hidden-xs">
+                  <img src = "{{ asset ('upload/'.$a->picture) }}" class="img-responsive" alt="Muvee Reviews Video Magazine HTML5 Bootstrap" title="{{ $a->title }}" style="height:150px;width:1010px;">
+                  </a>
+            <?php
+              }
+            ?>
             @endforeach
-            </a>
           </div>
             <!-- SIDEBAR ADVERTISE BOX -->
            
@@ -252,11 +374,22 @@
       </section>
       <div class="clearfix"></div>
       <!-- MAIN ROLL ADVERTISE BOX -->
-
-       @foreach($ab as $b)
-      <a href="{{ 'http://'.$b->address }}" class="banner-md">
-      <img src = "{{ 'upload/'.$b->picture }}" class="img-responsive" alt="Buy Now Muvee Reviews Bootstrap HTML5 Template" title="{{ $b->title }}" style="width:1060px;height:150px; margin-left:220px;">
-      </a>
+     @foreach($ab as $b)
+         <?php 
+                  if ($b->state != 1){
+                ?>
+                    <a href="#" class="banner-l hidden-sm hidden-xs">
+                      <img src = "{{ asset ('homes/img/banners/banner-sm.jpg') }}" class="img-responsive" alt="Muvee Reviews Video Magazine HTML5 Bootstrap" title="可购买" style="height:150px;width:1060px;">
+                      </a>
+                <?php
+                  } else {
+                ?>
+                    <a href="{{ 'http://'.$b->address }}" class="banner-l hidden-sm hidden-xs">
+                      <img src = "{{ asset ('upload/'.$b->picture) }}" class="img-responsive" alt="Muvee Reviews Video Magazine HTML5 Bootstrap" title="{{ $b->title }}" style="height:150px;width:1060px;">
+                      </a>
+               <?php
+                  }
+                ?>
       @endforeach
       <!-- CURRENTLY VIEWING -->
       <section id="cur-view">

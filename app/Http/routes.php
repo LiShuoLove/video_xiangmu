@@ -28,7 +28,8 @@ Route::get('/personalcenter','home\PersonalController@personal');
 Route::post('/personalcenter','home\PersonalController@update');
 Route::post('/connect','home\PersonalController@connectus');
 
-
+// 退出登录
+Route::get('/out','home\LoginOutController@index');
 
 // 联系我们
 Route::get('/lianxiwomen','home\LianxiwomenController@lianxiwomen');
@@ -42,6 +43,8 @@ Route::get('/page', 'home\PageController@index');
 //登录
 Route::get('/login','home\LoginController@index');
 Route::post('/login', 'home\LoginController@dologin');
+//手机注册
+Route::post('/yan' , 'home\LoginController@yan');
 //注册
 Route::get('/register', 'home\LoginController@register');
 Route::post('/register', 'home\LoginController@doregister');
@@ -50,12 +53,11 @@ Route::post('/register', 'home\LoginController@doregister');
 Route::get('/home/comments','home\CommentController@index');
 Route::post('/home/creates','home\CommentController@create');
 
-//前台购物车
-Route::get('/orders','home\OrderController@index');
-
-
-
-
+//版块跳转
+Route::get('/dz','home\DZController@index');
+Route::get('/aq','home\AQController@index');
+Route::get('/js','home\JSController@index');
+Route::get('/xj','home\XJController@index');
 
     
 //后台未登录
@@ -146,7 +148,7 @@ Route::group(['prefix'=>'admin','middleware'=>'isLogin'],function(){
 			//上传图片和视频
 			Route::post('/uploads','admin\ListController@doUpload');
 			Route::post('/upload', 'admin\ListController@upload');
-			Route::post('/uploadsss','admin\ListController@uploadsss');
+			Route::post('/upload_video','admin\ListController@upload_video');
 			//修改
 			//视频列表
 			Route::resource('/lists','admin\ListController');

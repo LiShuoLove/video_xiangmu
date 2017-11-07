@@ -2,21 +2,34 @@
 
 namespace App\Http\Controllers\Home;
 
+
+use Flc\Dysms\Client;
+use Flc\Dysms\Request\SendSms;
 use Illuminate\Http\Request;
 use DB;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Model\User_login;
 use App\Model\User_sign;
+use iscms\Alisms\SendsmsPusher as Sms;
 use Exception;
 
 class LoginController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+
+    public  $sms;
+
+    public function __construct(Sms $sms)
+    {
+        $this->sms=$sms;
+    }
+
     public function index()
     {
         
@@ -26,9 +39,10 @@ class LoginController extends Controller
     public function dologin(Request $request)
     {
         //
-       
+     
          $name = $request->input('tel');
          $password = $request->input('password');
+        
 
         // Index_users_login::where('login_name','like','%'.$name.'%');
         //查询数据库中的所有数据
@@ -37,9 +51,9 @@ class LoginController extends Controller
 
         // 遍历输出用户名并判断
         if ($list) {
-            $user = ['id'=>$list->id,'tel'=>$list->tel,'password'=>$list->password,'lasttime'=>$list->lasttime];
+            $user = ['id'=>$list->id,'tel'=>$list->tel,'password'=>$list->password,'lasttime'=>$list->lasttime,'username'=>$list->username];
             $request->session()->put('user', $user);
-            return redirect('/core');
+            return redirect('/home');
         } else {
             return back()->with('msg', '登录失败请重新登录！');
         }
@@ -47,6 +61,31 @@ class LoginController extends Controller
 
 
     }
+
+    public function yan(Request $request)
+    {
+
+        // return 111;
+        // $input = $request->all();
+        $tel = $request['shou'];
+        $config = [
+            'accessKeyId'    => 'LTAIrNGyqZ4EXzNW',
+            'accessKeySecret' => 'IVd81pU9uFqIcEB60aElZZ4xS5ZQIC',
+        ];
+        $client  = new Client($config);
+        $sendSms = new SendSms;
+        $code = rand(100000, 999999);
+        $sendSms->setPhoneNumbers($tel);
+        $sendSms->setSignName('祥云微博');
+        $sendSms->setTemplateCode('SMS_109030031');
+        $sendSms->setTemplateParam(['code' => $code]);
+        $a = $client->execute($sendSms);
+       
+        // $code = session('code',$code);
+        session(['code'=>$code]);
+        return 'ok';
+    }
+    
 
 
 
@@ -72,6 +111,7 @@ class LoginController extends Controller
             // 获取注册信息
             $tel = $request->input('tel');
              $pwd = $request->input('password');
+             $user = $request->input('username');
             // $ip = $_SERVER["REMOTE_ADDR"];
              $time = date("Y-m-d H:i:s");                                 
             // 'phone'=>'regex:/^1[34578][0-9]{9}$/'
@@ -87,7 +127,7 @@ class LoginController extends Controller
                     // 插入注册表
                     $flight = new User_sign;
                     $flight->tel = $tel;
-
+                    $flight ->username = $user;
                     $flight->password = $pwd;
                     // $flight->register_ip = $ip;
                     // $flight->rg_time= $time;
@@ -98,7 +138,7 @@ class LoginController extends Controller
                      $id = user_sign::all()->last()->sid;
                     //插入登录表
                     $flight2 = new User_login;
-                    
+                    $flight2->username = $user;
                      $flight2->user_id = $id;
 
                     $flight2->tel = $tel;
@@ -121,6 +161,14 @@ class LoginController extends Controller
                     if($result1 && $result2){
                         \DB::commit();
                         //重定向到主页
+                        $sql = DB::table('user_login')->get();
+                        
+
+                         $query = end($sql);
+                         DB::table('data_user_info')->insert(
+                             ['zid' => $query->user_id]
+                         );
+
                          return redirect('/login')->with('msg','注册成功，请登录');
                     }
         }catch(Exception $e){
@@ -131,7 +179,6 @@ class LoginController extends Controller
             
 }
 
-    
 
     /**
      * Display the specified resource.

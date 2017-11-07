@@ -219,6 +219,7 @@
                </div>
                <div class="modal-body">
                   <form name="info_form" class="form-inline" action="#" method="post">
+                  <input type="hidden" name="_token" value="{{csrf_token()}}">
                      <div class="form-group col-sm-12">
                         <input type="text" class="form-control" name="name" id="name" placeholder="用户名/手机号/邮箱">
                      </div>

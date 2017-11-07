@@ -16,7 +16,7 @@
 		public function index(Request $request)
 		{
 			$where = [];
-	        $ob = DB::table('data_video_bk');
+	        $ob = DB::table('data_category');
 	        // dd($ob)->all();
 	        // 判断是否搜索了name字段
 	        // if($request->has('name')){
@@ -53,7 +53,7 @@
 			// dd($link);
 			
 
-			$id = DB::table('data_video_bk')->insertGetid($link);
+			$id = DB::table('data_category')->insertGetid($link);
 			if ($id > 0) {
 				return redirect('/admin/section')->with('msg','添加成功');
 			}
@@ -69,7 +69,7 @@
 			$date = $ob->paginate(99);
 			//获取版块
 			$edit = $request->only('id');
-			$res = DB::table('data_video_bk')->where('id', $edit);
+			$res = DB::table('data_category')->where('id', $edit);
 			$list = $res->paginate(1);
 			// dd($list);
 			return view ('admin.section.edit', ['list'=>$list, 'date'=>$date]);
@@ -81,7 +81,7 @@
 			$link = $request->except('_token');
 			$id = $request->only('id');
 			// dd($link);
-			$res = DB::table('data_video_bk')->where('id', $id)->update($link);
+			$res = DB::table('data_category')->where('id', $id)->update($link);
 			// dd($res);
 			if ($res > 0) {
 				return redirect('/admin/section')->with('msg','修改成功');
@@ -97,7 +97,7 @@
 			$del = $request->only('id');
 			// $del = $request->all();
 			// dd($del);
-			$res = DB::table('data_video_bk')->where('id', $del)->delete();
+			$res = DB::table('data_category')->where('id', $del)->delete();
 	        if($res > 0){
 	            return redirect('/admin/section')->with('msg', '删除成功');
 	        }else{

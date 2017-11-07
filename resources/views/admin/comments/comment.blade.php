@@ -39,7 +39,7 @@
                                     <form action="{{url('comment')}}" method="get">
                                         <div class="am-input-group am-input-group-sm tpl-form-border-form cl-p">
                                          
-                                            <input type="text" name="guanjianzi" class="am-form-field ">
+                                            <input type="text" name="username" class="am-form-field ">
 
                                             <span class="am-input-group-btn">
                                                 <input class="am-btn  am-btn-default am-btn-success tpl-table-list-field am-icon-search" type="submit" value="搜索">
@@ -80,16 +80,16 @@
                                                         <a href="javascript:doDel({{ $comment->id }})" class="tpl-table-black-operation-del">
                                                             <i class="am-icon-trash"></i> 删除
                                                         </a>
+                                            </tr>
                                                         
                                                     </div>
                                                 </td>
-                                            </tr>
                                             @endforeach
                                         
                                             <!-- more data -->
                                         </tbody>
                                     </table>
-                                    
+                                   
                             </div>
                         </div>
                     </div>

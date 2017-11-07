@@ -15,8 +15,7 @@ class PersonalController extends Controller
 		
 		$where = [];
 		$id = session('user')['id'];
-		
-		$row = DB::table('data_user_info')->first();		
+		$row = DB::table('data_user_info')->where('zid','=',$id)->first();		
 			// dd($row);
 		return view('home.personcenter.personalindex',['row'=>$row]);
 
@@ -28,10 +27,9 @@ class PersonalController extends Controller
 		$message = $request->except('_token');
 
 		$id = session('user')['id'];
-		
 		//$id = $request->only('id');
 		
-		$res = DB::table('data_user_info')->where('id', $id)->update($message);
+		$res = DB::table('data_user_info')->where('zid','=' ,$id)->update($message);
 		if ($res > 0) {
 			return redirect('/personalcenter')->with('msg','修改成功');
 		}else{
@@ -41,8 +39,9 @@ class PersonalController extends Controller
 
 	public function connectus(Request $request)
 	{
-		$user_id = 1;
-		$row = DB::table('data_user_info')->where('id', $user_id)->first();	
+
+		$user_id = session('user')['id'];
+		$row = DB::table('user_login')->where('id', $user_id)->first();	
 		$data['user_name'] = $row->username;
 		$data['content'] = $_POST['content'];
 		$data['main'] = $_POST['content'];

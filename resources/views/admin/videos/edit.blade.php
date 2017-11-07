@@ -96,8 +96,9 @@
                                         <div class="am-u-sm-9">
                                             <div class="am-form-group am-form-file">
                                                 <div class="tpl-form-file-img">
+                                                       
                                                         <input type="text"  name="video_movie" value="{{$data_video_info->video_movie}}" id="video_movie" style="width:25%">
-                                                        <video src="{{asset('./'.$data_video_info->video_movie)}}" style="width:350px;" class="tpl-table-line-img" alt="">
+                                                        <video  id="video1" src="{{asset('./'.$data_video_info->video_movie)}}" style="width:350px;" class="tpl-table-line-img" alt="">
                                                     </div>
                                             </div>
 
@@ -134,10 +135,89 @@
                     </div>
                 </div>
 
-               
-
-
             </div>
+<script type="text/javascript">
+    $(function () {
+        $("#file_upload").change(function () {
+            uploadImage();
+        })
+
+        $("#video_upload").change(function () {
+            uploadVideo();
+        })
+    })
+
+    function uploadVideo() {
+    //  判断是否有选择上传文件
+        var imgPath = $("#video_upload").val();
+        if (imgPath == "") {
+            alert("请选择上传视频！");
+            return;
+        }
+        //判断上传文件的后缀名
+        var strExtension = imgPath.substr(imgPath.lastIndexOf('.') + 1);
+        if (   strExtension != 'mp4' && strExtension != 'avi'
+            && strExtension != 'flv' && strExtension != 'mp3'
+             && strExtension != 'mkv' && strExtension != 'rmvb' ) {
+            alert("请选择视频文件");
+            return;
+        }
+        var formData = new FormData($('#art_form')[0]);
+
+        // alert(JSON.stringfty(formData));
+        $.ajax({
+            type: "POST",
+            url: "/admin/upload_video",
+            data: formData,
+            contentType: false,
+            processData: false,
+            success: function(data) {
+                                // alert(data);
+
+                $('#video1').attr('src','/'+data);
+                $('#video_movie').val(data);
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown) {
+                alert("上传失败，请检查网络后重试");
+            }
+        });
+    }
+
+    function uploadImage() {
+//  判断是否有选择上传文件
+        var imgPath = $("#file_upload").val();
+        if (imgPath == "") {
+            alert("请选择上传图片！");
+            return;
+        }
+        //判断上传文件的后缀名
+        var strExtension = imgPath.substr(imgPath.lastIndexOf('.') + 1);
+        if (strExtension != 'jpg' && strExtension != 'gif'
+            && strExtension != 'png' && strExtension != 'bmp') {
+            alert("请选择图片文件");
+            return;
+        }
+        var formData = new FormData($('#art_form')[0]);
+        $.ajax({
+            type: "POST",
+            url: "/admin/upload",
+            data: formData,
+            contentType: false,
+            processData: false,
+            success: function(data) {
+                $('#img1').attr('src','/'+data);
+                $('#video_original').val(data);
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown) {
+                alert("上传失败，请检查网络后重试");
+            }
+        });
+    }
+</script>
+<link rel="stylesheet" type="text/css" href="{{ asset('admin/css/Huploadify.css')}}"/>
+<script type="text/javascript" src="{{ asset('admin/js/jquery.js')}}"></script>
+<script type="text/javascript" src="{{ asset('admin/js/jquery.Huploadify.js')}}"></script>
+<style type="text/css"></style>
 
    
 

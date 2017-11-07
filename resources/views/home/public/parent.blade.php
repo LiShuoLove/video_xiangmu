@@ -45,19 +45,30 @@ $.ajaxSetup({
 </script>
 <body>
 
+                            @if (session('msg'))
+                                <script>
+                                    alert("{{ session('msg') }}")
+                                </script>
+                            @endif
+
 
          <!-- HEADER -->
-    
-               
+              @if(session('user')['id'] !== null)
+                <div class="right-box">
+                  <a href="{{url('/personalcenter')}}"><button type="button" class="access-btn">个人中心</button></a>
+                  <a href="{{url('/out')}}"><button type="button" class="access-btn">退出</button></a>
+
+               </div>
+              @endif
+
+              @if(session('user')['id'] == null)
                <div class="right-box">
                   <a href="{{ url('/login') }}"><button type="button" class="access-btn">登录</button></a>
                </div>
                <div class="right-box">
                   <a href="{{ url('/register') }}"><button type="button" class="access-btn">注册</button></a>
                </div>
-               
-            </div>
-        
+               @endif
 <!-- HOME 1 -->
 <div id="home1" class="container-fluid standard-bg">
  <!-- HEADER -->
@@ -66,10 +77,22 @@ $.ajaxSetup({
       <a class="main-logo" href="#"><img src = "{{ asset ('homes/img/main-logo.png')}}" class="main-logo img-responsive" alt="Muvee Reviews" title="Muvee Reviews"></a>
    </div>
    <div class="col-lg-6 hidden-md text-center hidden-sm hidden-xs">
-       @foreach($list as $v)
-      <a href="{{ 'http://'.$v->address }}" class="banner-l hidden-sm hidden-xs">
-      <img src = "{{ asset ('upload/'.$v->picture) }}" class="img-responsive" alt="Muvee Reviews Video Magazine HTML5 Bootstrap" title="{{ $v->title }}" style="height:100px;width:700px;">
-      </a>
+     @foreach($list as $v)
+      <?php 
+          if ($v->state != 1){
+        ?>
+            <a href="#" class="banner-l hidden-sm hidden-xs">
+              <img src = "{{ asset ('homes/img/banners/banner-sm.jpg') }}" class="img-responsive" alt="Muvee Reviews Video Magazine HTML5 Bootstrap" title="可购买" style="height:100px;width:700px;">
+              </a>
+        <?php
+          } else {
+        ?>
+            <a href="{{ 'http://'.$v->address }}" class="banner-l hidden-sm hidden-xs">
+              <img src = "{{ asset ('upload/'.$v->picture) }}" class="img-responsive" alt="Muvee Reviews Video Magazine HTML5 Bootstrap" title="{{ $v->title }}" style="height:100px;width:700px;">
+              </a>
+        <?php
+          }
+        ?>
       @endforeach
    </div>
    <div class="col-lg-3 col-md-6 col-sm-7 hidden-xs">
@@ -95,12 +118,20 @@ $.ajaxSetup({
         <div class="collapse navbar-collapse js-navbar-collapse megabg dropshd " style="height:100%;">
           <ul class="nav navbar-nav">
                   <li><a href="{{ url('/home') }}">首页</a></li>
-                  <li><a href="{{('/home/comments')}}">视频贴</a></li>
+                 
                   
-                  <li><a href="{{url('#')}}">欧美</a></li>
-                  <li><a href="{{url('#')}}">日韩</a></li>
-                  <li><a href="{{url('#')}}">国产</a></li>
-                  <li><a href="{{url('#')}}">回龙观</a></li>
+                  @foreach($sect as $c)
+                    <li><a href="{{url('/dz')}}">{{ $c->typename }}</a></li>
+                  @endforeach
+                  @foreach($secttwo as $t)
+                    <li><a href="{{url('/aq')}}">{{ $t->typename }}</a></li>
+                  @endforeach
+                  @foreach($sectsan as $s)
+                    <li><a href="{{url('/js')}}">{{ $s->typename }}</a></li>
+                  @endforeach
+                  @foreach($sectfour as $d)
+                    <li><a href="{{url('/xj')}}">{{ $d->typename }}</a></li>
+                  @endforeach
                   
                 
                   <li><a onclick="connectUs()" href="javascript:void(0)">联系我们</a></li>

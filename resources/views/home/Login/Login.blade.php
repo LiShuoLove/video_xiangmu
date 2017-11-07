@@ -57,13 +57,16 @@
                   </div>
                   <div class="collapse navbar-collapse js-navbar-collapse megabg dropshd ">
                      <ul class="nav navbar-nav">
-                        <li><a href="{{ url('/home') }}">首页</a></li>
-                  <li><a href="single-video.html">视频贴</a></li>
-                  <li><a href="single-page.html">视频页</a></li>
-                  <li><a href="single-page-with-img.html">视频内容</a></li>
-                  <li><a href="{{ url('/login') }}">登录</a></li>
-                  <li><a href="gallery-video-boxed.html">视频简介</a></li>
-                  <li><a href="contact.html">联系我们</a></li>
+                       <li><a href="{{ url('/home') }}">首页</a></li>
+                  <li><a href="{{('/home/comments')}}">视频贴</a></li>
+                  
+                  <li><a href="{{url('#')}}">欧美</a></li>
+                  <li><a href="{{url('#')}}">日韩</a></li>
+                  <li><a href="{{url('#')}}">国产</a></li>
+                  <li><a href="{{url('#')}}">回龙观</a></li>
+                  
+                
+                  <li><a onclick="connectUs()" href="javascript:void(0)">联系我们</a></li>
                      </ul>
                      <ul class="social">
                         <li class="social-facebook"><a href="#" class="fa fa-facebook social-icons"></a></li>
@@ -146,6 +149,8 @@
                                        </div>
                                        <div class="login-btn-box">
                                           <button class="access-btn" type="submit" name="submit">登录</button>
+                                          <a href="/wang"><button class="access-btn" type="button">忘记密码</button></a>
+                                       
                                        </div>
                                     </form>
                                  </div>

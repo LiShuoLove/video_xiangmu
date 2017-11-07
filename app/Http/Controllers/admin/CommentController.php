@@ -30,8 +30,7 @@ class CommentController extends Controller
                     ->join('data_category','category_id','=','data_category.id')
                     ->select('comment.*','data_category.*','comment.id');
                     
-                    
-                 
+            
                     // dd($comment);
         // dd($comment->first());
                
@@ -53,7 +52,7 @@ class CommentController extends Controller
          // $list = DB::select('select * from comment ');
          // dd($list);
         //查询构造器(优雅的)
-        $list = $comment ->paginate(10);
+        $list = $comment ->paginate(100);
         // dd($list);
         //返回一个页面,在页面中显示
         return view('admin.comments.comment', ['comment'=>$list, 'where'=>$where]);

@@ -17,8 +17,10 @@ class HomeController extends Controller
     public function index()
     {
       //视频
-        $firstMovies = DB::table('data_video_info')->where('category_id', 1)->take(5)->get();
+       $firstMovies = DB::table('data_video_info')->where('category_id', 1)->take(5)->get();
         $twoMovies = DB::table('data_video_info')->where('category_id', 2)->take(5)->get(); 
+        $threeMovies = DB::table('data_video_info')->where('category_id', 3)->take(5)->get(); 
+        $fourMovies = DB::table('data_video_info')->where('category_id', 4)->take(5)->get(); 
 
         //广告  
         $lol = DB::table('data_video_AD')->where('id', 1);
@@ -27,7 +29,12 @@ class HomeController extends Controller
         $sg = DB::table('data_video_AD')->where('id', 4);
         $fei = DB::table('data_video_AD')->where('id', 5);
         //搜索分区
-        $fq = DB::table('data_video_fq');
+        $qbk = DB::table('data_category');
+        //搜索版块
+        $bk = DB::table('data_category')->where('id', 1);
+        $bktwo = DB::table('data_category')->where('id', 2);
+        $bkthree = DB::table('data_category')->where('id', 3);
+        $bkfour = DB::table('data_category')->where('id', 4);
         //搜索友情链接
         $lj = DB::table('data_video_Connect');
 
@@ -38,7 +45,12 @@ class HomeController extends Controller
         $sou = $sg->paginate(1);
         $che = $fei->paginate(1);
         //显示分区
-        $part = $fq->paginate(99);
+        $part = $qbk->paginate(99);
+        //显示版块
+        $sect = $bk->paginate(1);
+        $secttwo = $bktwo->paginate(1);
+        $sectsan = $bkthree->paginate(1);
+        $sectfour = $bkfour->paginate(1);
         //显示友情链接
         $connect = $lj->paginate(99);
         
@@ -50,9 +62,15 @@ class HomeController extends Controller
          'sou'=>$sou, 
          'che'=>$che, 
          'part'=>$part, 
+         'sect'=>$sect, 
+         'secttwo'=>$secttwo, 
+         'sectsan'=>$sectsan, 
+         'sectfour'=>$sectfour, 
          'connect'=>$connect,
          'firstMovies' => $firstMovies,
          'twoMovies'   => $twoMovies,
+         'threeMovies'   => $threeMovies,
+         'fourMovies'   => $fourMovies,
 
             ]);
 
@@ -74,7 +92,7 @@ class HomeController extends Controller
     public function homes()
     {
 
-                $firstMovies = DB::table('data_video_info')->where('category_id', 1)->take(5)->get();
+        $firstMovies = DB::table('data_video_info')->where('category_id', 1)->take(5)->get();
         $twoMovies = DB::table('data_video_info')->where('category_id', 2)->take(5)->get(); 
 
         //广告  
@@ -112,6 +130,7 @@ class HomeController extends Controller
          'twoMovies'   => $twoMovies,
 
             ]);
+
 
     }
     /**
@@ -168,5 +187,15 @@ class HomeController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+     public function add(Request $request)
+    {
+        $input = $request->except('_token');
+        $input['user_id'] = Session::get('Huser')->id;
+        $re =  Idea::create($input);
+        if($re) {
+            return redirect('/mycenter');
+        }
     }
 }

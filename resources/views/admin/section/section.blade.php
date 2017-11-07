@@ -66,7 +66,7 @@
                                                 <td class="am-text-middle">
                                                     {{ $c->partname }}
                                                 </td>
-                                                  <td class="am-text-middle">{{ $c->sectname }}</td>
+                                                  <td class="am-text-middle">{{ $c->typename }}</td>
                                                 <td class="am-text-middle">
                                                     <div class="tpl-table-black-operation">
                                                         <a href="/admin/section_edit?id={{$c->id}}">

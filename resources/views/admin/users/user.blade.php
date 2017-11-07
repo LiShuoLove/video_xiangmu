@@ -66,7 +66,7 @@
                                         <thead>
                                             <tr>
                                                 <th>id</th>
-                                                <th>用户iD</th>
+                                          
                                                 <th>用户名</th>
                                                 <th>邮箱</th>
                                                 <th>手机号</th>
@@ -80,11 +80,11 @@
                                         @foreach ( $users as $v)
                                             <tr class="gradeX">
                                                 <td>{{ $v->id}}</td>
-                                                <td>{{ $v->user_id}}</td>
+                                              
                                                 <td>{{ $v->username}}</td>
                                                 <td>{{ $v->email}}</td>
                                                 <td>{{ $v->tel}}</td>
-                                                <td>{{ ($v->users_status == 1)?'普通会员':'VIP会员' }}</td>
+                                                <td>{{ ($v->user_status == 1)?'普通会员':'VIP会员' }}</td>
                                                 <td>{{ $v->birthday}}</td>
                                                 <td>{{ $v->created_at}}</td>
                                                 

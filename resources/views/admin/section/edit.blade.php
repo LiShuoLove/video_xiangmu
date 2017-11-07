@@ -44,7 +44,7 @@
                                     <div class="am-form-group">
                                         <label for="user-name" class="am-u-sm-3 am-form-label">版块名 <span class="tpl-form-line-small-title">id</span></label>
                                         <div class="am-u-sm-9">
-                                            <input type="text" name="sectname" class="tpl-form-input" id="user-name" value="{{ $v->sectname }}">
+                                            <input type="text" name="typename" class="tpl-form-input" id="user-name" value="{{ $v->typename }}">
                                         </div>
                                     </div>
 
